@@ -1,0 +1,6 @@
+{
+  "name": "AeroTactical Neural OS - Tactical Edge SLM Harness",
+  "description": "Air-gapped tactical edge small language model (SLM) harness and autonomous avionics neural runtime powered by open-weight AI, GBNF grammar constraints, and edge computer vision.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

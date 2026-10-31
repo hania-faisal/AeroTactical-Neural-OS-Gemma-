@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-error":"#690005","primary-container":"#00f0ff","secondary-fixed-dim":"#2adec0","primary-fixed-dim":"#00dbe9","tertiary-fixed":"#ffddb8","surface-container":"#1c2025","outline-variant":"#3b494b","on-error-container":"#ffdad6","outline":"#849495","on-tertiary-container":"#855300","secondary-container":"#00d0b2","surface-container-lowest":"#0a0e14","primary-fixed":"#7df4ff","on-surface":"#e0e2ea","error":"#ffb4ab","inverse-surface":"#e0e2ea","primary":"#dbfcff","tertiary-container":"#ffd19c","on-tertiary-fixed":"#2a1700","tertiary":"#fff3ea","background":"#101419","on-tertiary-fixed-variant":"#653e00","surface-container-high":"#262a30","on-primary-container":"#006970","on-background":"#e0e2ea","surface-bright":"#36393f","secondary":"#43edcd","on-secondary-container":"#005346","surface-dim":"#101419","on-primary-fixed-variant":"#004f54","on-primary-fixed":"#002022","on-secondary-fixed":"#00201a","on-secondary-fixed-variant":"#005144","secondary-fixed":"#57fbdb","on-surface-variant":"#b9cacb","inverse-on-surface":"#2d3136","on-primary":"#00363a","on-tertiary":"#472a00","surface-container-highest":"#31353b","on-secondary":"#00382e","surface":"#101419","tertiary-fixed-dim":"#ffb95f","surface-container-low":"#181c21","surface-tint":"#00dbe9","surface-variant":"#31353b","error-container":"#93000a","inverse-primary":"#006970"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xl":"1.5rem","margin":"1rem","space-md":"0.75rem","space-lg":"1rem","space-xs":"0.25rem","space-sm":"0.5rem","gutter":"0.75rem"},"fontFamily":{"mono-sm":["JetBrains Mono"],"body-sm":["Geist"],"label-caps":["JetBrains Mono"],"body-lg":["Geist"],"mono-lg":["JetBrains Mono"],"headline-xl":["Geist"],"headline-xl-mobile":["Geist"],"body-md":["Geist"],"headline-lg":["Geist"],"headline-md":["Geist"],"mono-md":["JetBrains Mono"]},"fontSize":{"mono-sm":["11px",{"lineHeight":"16px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"label-caps":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"mono-lg":["15px",{"lineHeight":"22px","letterSpacing":"-0.02em","fontWeight":"500"}],"headline-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-xl-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-md":["18px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"600"}],"mono-md":["13px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col justify-between py-margin shadow-[0_1px_8px_rgba(0,0,0,0.5)]"><div class="flex flex-col gap-space-lg"><div class="px-space-md flex items-center justify-between"><span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">TACTICAL TOOLRAIL</span><span class="px-space-xs py-0.5 rounded bg-surface-container-high text-secondary font-mono-sm text-mono-sm">NODE::L3</span></div><nav class="flex flex-col gap-space-xs px-space-sm" data-active-classes="bg-surface-container-highest text-primary font-mono-md rounded border-l-2 border-primary-container"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded font-mono-md text-mono-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="visual-diagnostics-hud" href="#"><span class="material-symbols-outlined text-base">videocam</span><span>Mission Feeds</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded font-mono-md text-mono-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="local-slm-agent-harness" href="#"><span class="material-symbols-outlined text-base">memory</span><span>Local Checkpoints</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded font-mono-md text-mono-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="structured-json-tools" href="#"><span class="material-symbols-outlined text-base">data_object</span><span>Schema Inspector</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded font-mono-md text-mono-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="edge-telemetry-offload" href="#"><span class="material-symbols-outlined text-base">terminal</span><span>System Log Stream</span></a></nav></div><div class="px-space-md flex flex-col gap-space-sm"><div class="p-space-sm rounded bg-surface-container-lowest flex flex-col gap-space-xs"><div class="flex justify-between items-center"><span class="font-label-caps text-label-caps text-outline">MODEL INSTANCE</span><span class="font-mono-sm text-mono-sm text-secondary">READY</span></div><div class="font-mono-sm text-mono-sm text-on-surface truncate">Llama-3.2-3B-Instruct</div><div class="font-mono-sm text-mono-sm text-on-surface-variant">CKPT: Phi-3.5-mini-awq</div></div><div class="flex items-center justify-between text-outline font-label-caps text-label-caps px-space-xs"><span>AIRGAP LOCK ENGAGED</span><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 z-40 bg-surface-container-low/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-20 w-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-max"><img alt="AeroTactical Neural OS Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WXtBtlWViBSqEkjKBImpv2bEraAsf4pKeLi4gAm8580bjTHcF6Epv9Di2ml_YmKxbg57NGJWq0L-oJ-19j9PTYo-79A0pKTzH1753TW3n--m4qoOOH2lh6JuZ3uY5raH3K7ctsefwvZqJrm0YmKXDtGktckPoXLmZRrgHSVAlWpysqBfMdXHsmUs0RCBpTnyXhrEUqzBfpNGi9iiZtY8R_O-jPKL6YdavkaX2IDmMWng"/><div class="flex flex-col"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md tracking-tight uppercase text-primary font-bold">TACTICAL EDGE-SLM</span><span class="px-space-xs py-0.5 rounded bg-surface-container-high text-secondary font-label-caps text-label-caps border border-outline-variant">AIR-GAPPED // v0.9.4-QUANT</span></div><span class="font-mono-sm text-mono-sm text-on-surface-variant">AEROTACTICAL OS // AUTONOMOUS RUNTIME</span></div></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-primary font-mono-md rounded"><a class="px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-mono-md text-mono-md transition-colors" data-path="visual-diagnostics-hud" href="#">Visual Diagnostics & HUD</a><a class="px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-mono-md text-mono-md transition-colors" data-path="local-slm-agent-harness" href="#">Local SLM Agent Harness</a><a class="px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-mono-md text-mono-md transition-colors" data-path="structured-json-tools" href="#">Structured JSON Tools</a><a class="px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-mono-md text-mono-md transition-colors" data-path="edge-telemetry-offload" href="#">Edge Telemetry & Offload</a></nav><div class="flex items-center gap-space-md"><div class="hidden 2xl:flex items-center gap-space-sm bg-surface-container-lowest px-space-md py-space-xs rounded font-mono-sm text-mono-sm"><div class="flex flex-col"><span class="text-outline font-label-caps text-label-caps">AIR-GAP</span><span class="text-secondary font-bold">100% SECURE</span></div><div class="h-6 w-px bg-outline-variant"></div><div class="flex flex-col"><span class="text-outline font-label-caps text-label-caps">ENGINE</span><span class="text-primary">LLAMA.CPP: LOCAL</span></div><div class="h-6 w-px bg-outline-variant"></div><div class="flex flex-col"><span class="text-outline font-label-caps text-label-caps">VRAM OFF</span><span class="text-on-surface">3.8/8 GB Q4_K_M</span></div><div class="h-6 w-px bg-outline-variant"></div><div class="flex flex-col"><span class="text-outline font-label-caps text-label-caps">NPU ACCEL</span><span class="text-secondary-fixed-dim">INT8 ACTIVE</span></div><div class="h-6 w-px bg-outline-variant"></div><div class="flex flex-col"><span class="text-outline font-label-caps text-label-caps">LATENCY / TTFT</span><span class="text-primary-container font-bold">14.2ms / 18ms</span></div></div><div class="flex items-center gap-space-sm"><button class="p-space-xs rounded bg-error-container text-on-error hover:bg-error hover:text-on-error transition-colors flex items-center justify-center" title="Local Air-Gap Kill Switch"><span class="material-symbols-outlined text-lg">lock</span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-primary-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWackdpdZnDnsai55fDIwwizAuANdsMmdPQw5lqGbV0wv_c3QWJG0LQHVyviU1T75NVfq3gtG8jeKh7ZqvC79vzM-FlNbSIcveJnKSbSoWkTXr3_aSRTI2CRZXXojb-xjYv7_-MjbiTV8GE2rqTPPZ-xW-LUa1f8p-SHiyoPIW003S4_n5lOmh7LdMiBixtEsyuEgSU54Q7hm_O75BNAt2dMrlCxzYFiCcf0FcreSK"/></div></div></div></header><main class="relative pt-20 w-full min-h-screen bg-surface"><div class="flex flex-col w-full">
+<div class="p-space-lg flex flex-col gap-space-md">
+<!-- Top System Telemetry Bar (High Density Status Matrix) -->
+<div class="w-full bg-surface-container-low rounded-lg p-space-md flex flex-wrap items-center justify-between gap-space-md shadow-md">
+<div class="flex items-center gap-space-lg flex-wrap">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary shadow-[0_0_8px_rgba(67,237,205,0.8)] animate-pulse"></span>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase">MISSION FEED SENSOR</span>
+<span class="font-mono-md text-mono-md text-primary font-bold">UAV-FLIR/EO // RECON-BAY-04</span>
+</div>
+</div>
+<div class="h-8 w-px bg-surface-container-highest hidden sm:block"></div>
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase">COORDINATE FIX</span>
+<span class="font-mono-sm text-mono-sm text-on-surface font-semibold">MGRS 38S MB 4921 8219</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase">ALTITUDE / SPEED</span>
+<span class="font-mono-sm text-mono-sm text-on-surface">1,420M AGL // 64 KTS</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase">AZIMUTH / FOV</span>
+<span class="font-mono-sm text-mono-sm text-secondary-fixed-dim">284° WNW // 12.8° FLIR</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<div class="bg-surface-container-lowest px-space-sm py-space-xs rounded flex items-center gap-space-sm">
+<span class="font-label-caps text-label-caps text-outline">VISION ENGINE:</span>
+<span class="font-mono-sm text-mono-sm text-primary font-bold">YOLOv11-NANO-EDGE</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-secondary font-mono-sm text-mono-sm">62 FPS</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-primary-container font-mono-sm text-mono-sm">8.4ms</span>
+</div>
+<div class="bg-surface-container-lowest px-space-sm py-space-xs rounded flex items-center gap-space-xs text-secondary">
+<span class="material-symbols-outlined text-sm">wifi_off</span>
+<span class="font-label-caps text-label-caps">AIRGAP SECURED</span>
+</div>
+</div>
+</div>
+<!-- Main Workspace Split: Viewport & Multimodal SLM Reasoner -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-md w-full">
+<!-- Primary Tactical Camera Feed & HUD Viewport (8 Columns) -->
+<div class="xl:col-span-8 flex flex-col gap-space-sm">
+<div class="relative w-full aspect-video bg-surface-container-lowest rounded-lg overflow-hidden shadow-xl group">
+<!-- Base Imagery Layer: Simulated FLIR Thermal / EO Feed -->
+<div class="absolute inset-0 bg-cover bg-center filter contrast-125 brightness-95" data-alt="A gritty high-altitude tactical drone reconnaissance thermal FLIR infrared perspective looking down at an industrial aerospace hangar and hydraulic ground testing bay. Intricate high-contrast infrared thermal signatures with sharp glowing cyan, amber, and deep slate hues, detailed geometric architecture, tactical gridlines, and aircraft support equipment visible in razor-sharp military optics." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBebgBcpxBQV9QEyDccv81C5PVpUJAtYU8kflkhNEqnVxucIURaVXTcQOrq86GwG98x0t5wD7IZzTG0OBrwDaRx35GzTKkZBDNZIQvWT3W36tqjU7TUWAsTZZX9Goe3LEV9xYheXkddeSJiE56I7CwRVwESNMH-4alGVmhy0xxZKkDL4B_FpgDi0FiDpCadgU4csWb-14K4k2tHnNLbr7PTujrhDECvVtK-9oLH_jG3')">
+</div>
+<!-- Tactical HUD Scanlines & Grain Gradient -->
+<div class="absolute inset-0 bg-gradient-to-b from-surface-container-lowest/60 via-transparent to-surface-container-lowest/80 pointer-events-none"></div>
+<!-- Compass Header Overlay -->
+<div class="absolute top-3 left-4 right-4 flex items-center justify-between pointer-events-none select-none">
+<div class="flex items-center gap-space-sm bg-surface-container-low/85 backdrop-blur-md px-space-sm py-1 rounded">
+<span class="material-symbols-outlined text-secondary text-sm">adjust</span>
+<span class="font-mono-sm text-mono-sm text-on-surface">SYS_TIME: 14:38:29.402 UTC</span>
+<span class="font-mono-sm text-mono-sm text-outline">|</span>
+<span class="font-mono-sm text-mono-sm text-secondary font-bold">REC ● 00:44:12</span>
+</div>
+<!-- Compass Ribbon Tape -->
+<div class="hidden md:flex items-center gap-2 bg-surface-container-low/85 backdrop-blur-md px-3 py-1 rounded font-mono-sm text-mono-sm text-on-surface-variant">
+<span>260</span>
+<span class="text-outline">|</span>
+<span>270</span>
+<span class="text-outline">|</span>
+<span class="text-primary font-bold">▲ 284° WNW</span>
+<span class="text-outline">|</span>
+<span>300</span>
+<span class="text-outline">|</span>
+<span>310</span>
+</div>
+<!-- HUD Reticle Sensor Modes -->
+<div class="flex items-center gap-1 bg-surface-container-low/85 backdrop-blur-md p-1 rounded pointer-events-auto">
+<button class="px-2 py-0.5 rounded text-surface-container-lowest bg-primary-container font-label-caps text-label-caps uppercase font-bold transition-colors">FLIR-W</button>
+<button class="px-2 py-0.5 rounded text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps uppercase transition-colors">FLIR-B</button>
+<button class="px-2 py-0.5 rounded text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps uppercase transition-colors">EO-RGB</button>
+</div>
+</div>
+<!-- Central Crosshair Reticle -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<div class="absolute w-full h-px bg-primary/40"></div>
+<div class="absolute h-full w-px bg-primary/40"></div>
+<div class="w-8 h-8 rounded-full bg-transparent shadow-[0_0_12px_rgba(0,240,255,0.25)] flex items-center justify-center">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+</div>
+<!-- Pitch Ladder Marks -->
+<span class="absolute -top-6 font-mono-sm text-mono-sm text-primary/70 tracking-widest">+05.0°</span>
+<span class="absolute -bottom-6 font-mono-sm text-mono-sm text-primary/70 tracking-widest">-05.0°</span>
+</div>
+</div>
+<!-- TACTICAL BOUNDING BOX 1: Payload Sensor Bay -->
+<div class="absolute top-[22%] left-[18%] w-[26%] h-[24%] pointer-events-auto cursor-pointer group/box transition-all">
+<!-- Reticle Corners -->
+<div class="absolute inset-0 bg-primary/5">
+<div class="absolute top-0 left-0 w-3 h-3 bg-transparent"></div>
+<div class="absolute top-0 right-0 w-3 h-3 bg-transparent"></div>
+<div class="absolute bottom-0 left-0 w-3 h-3 bg-transparent"></div>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-transparent"></div>
+</div>
+<!-- Detection Tag -->
+<div class="absolute -top-6 left-0 bg-surface-container-lowest px-2 py-0.5 rounded flex items-center gap-1 shadow-md">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-caps text-label-caps text-primary tracking-wider font-bold">BAY_POD::01</span>
+<span class="font-mono-sm text-mono-sm text-secondary font-bold">[CONF: 97.4%]</span>
+</div>
+<!-- Corner Accents -->
+<div class="absolute bottom-1 right-1 font-mono-sm text-mono-sm text-on-surface-variant bg-surface-container-lowest/80 px-1 rounded">
+              ΔT: +1.2°C
+            </div>
+</div>
+<!-- TACTICAL BOUNDING BOX 2: Hydraulic Actuator Fault (CRITICAL ALERT) -->
+<div class="absolute top-[48%] left-[44%] w-[32%] h-[34%] pointer-events-auto cursor-pointer group/box transition-all animate-pulse">
+<!-- Reticle Box with Warning Glow -->
+<div class="absolute inset-0 bg-on-tertiary-container/15">
+<div class="absolute top-0 left-0 w-4 h-4 bg-tertiary-container"></div>
+<div class="absolute top-0 right-0 w-4 h-4 bg-tertiary-container"></div>
+<div class="absolute bottom-0 left-0 w-4 h-4 bg-tertiary-container"></div>
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-tertiary-container"></div>
+</div>
+<!-- Alert Detection Tag -->
+<div class="absolute -top-7 left-0 bg-surface-container-lowest px-2 py-1 rounded flex items-center gap-1.5 shadow-lg">
+<span class="material-symbols-outlined text-tertiary-container text-xs">warning</span>
+<span class="font-label-caps text-label-caps text-tertiary font-bold tracking-wider">HYDRAULIC ACTUATOR FAULT</span>
+<span class="font-mono-sm text-mono-sm text-tertiary-fixed-dim font-bold">[ALERT: 92%]</span>
+</div>
+<div class="absolute -bottom-5 left-0 font-mono-sm text-mono-sm text-tertiary-container bg-surface-container-lowest/90 px-1.5 py-0.5 rounded">
+              THERMAL SIGNATURE: 84.6°C (MAX CRIT: 80.0°C)
+            </div>
+</div>
+<!-- TACTICAL BOUNDING BOX 3: Unidentified Signal Transmitter -->
+<div class="absolute top-[28%] right-[10%] w-[18%] h-[20%] pointer-events-auto cursor-pointer group/box transition-all">
+<div class="absolute inset-0 bg-secondary/5">
+<div class="absolute top-0 left-0 w-3 h-3 bg-secondary"></div>
+<div class="absolute top-0 right-0 w-3 h-3 bg-secondary"></div>
+<div class="absolute bottom-0 left-0 w-3 h-3 bg-secondary"></div>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-secondary"></div>
+</div>
+<div class="absolute -top-6 left-0 bg-surface-container-lowest px-2 py-0.5 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-xs">radar</span>
+<span class="font-label-caps text-label-caps text-on-surface">EMITTER_NODE</span>
+<span class="font-mono-sm text-mono-sm text-secondary font-bold">[CONF: 88.1%]</span>
+</div>
+</div>
+<!-- Bottom Viewport Controls & Zoom HUD Bar -->
+<div class="absolute bottom-3 left-4 right-4 flex items-center justify-between pointer-events-none select-none">
+<div class="flex items-center gap-space-xs bg-surface-container-low/90 backdrop-blur-md px-2 py-1 rounded pointer-events-auto">
+<span class="font-label-caps text-label-caps text-outline mr-1">OPTICAL MAG:</span>
+<button class="px-2 py-0.5 rounded font-mono-sm text-mono-sm bg-surface-container-high text-on-surface hover:text-primary transition-colors">1x</button>
+<button class="px-2 py-0.5 rounded font-mono-sm text-mono-sm bg-primary-container text-surface-container-lowest font-bold">4x FLIR</button>
+<button class="px-2 py-0.5 rounded font-mono-sm text-mono-sm bg-surface-container-high text-on-surface hover:text-primary transition-colors">10x ULTRA</button>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low/90 backdrop-blur-md px-3 py-1 rounded pointer-events-auto font-mono-sm text-mono-sm">
+<div class="flex items-center gap-1">
+<span class="text-outline">TARGET RANGE:</span>
+<span class="text-primary font-bold">1,842 M</span>
+</div>
+<span class="text-outline">|</span>
+<div class="flex items-center gap-1">
+<span class="text-outline">LOS LOCK:</span>
+<span class="text-secondary font-bold">SOLID</span>
+</div>
+<button class="ml-2 text-primary hover:text-secondary transition-colors" title="Toggle Grid Overlay">
+<span class="material-symbols-outlined text-base">grid_4x4</span>
+</button>
+<button class="text-primary hover:text-secondary transition-colors" title="Lock Track Target">
+<span class="material-symbols-outlined text-base">filter_center_focus</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Vision Diagnostics Sub-telemetry & Inference Counters -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm">
+<div class="bg-surface-container-low p-space-sm rounded flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase">EDGE LATENCY</span>
+<span class="material-symbols-outlined text-xs text-secondary">speed</span>
+</div>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-mono-lg text-mono-lg text-primary font-bold">8.4</span>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant">ms / frame</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded mt-1.5 overflow-hidden">
+<div class="bg-secondary h-full w-[24%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase">BOUNDING DETECTIONS</span>
+<span class="material-symbols-outlined text-xs text-primary-container">view_in_ar</span>
+</div>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-mono-lg text-mono-lg text-on-surface font-bold">03</span>
+<span class="font-mono-sm text-mono-sm text-tertiary font-bold">(1 CRITICAL)</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded mt-1.5 overflow-hidden">
+<div class="bg-primary-container h-full w-[65%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase">PROMPT KV CACHE</span>
+<span class="material-symbols-outlined text-xs text-secondary-fixed-dim">memory</span>
+</div>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-mono-lg text-mono-lg text-on-surface font-bold">1,024</span>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant">/ 4,096 TOK</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded mt-1.5 overflow-hidden">
+<div class="bg-secondary-fixed-dim h-full w-[25%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase">NPU POWER / DRIFT</span>
+<span class="material-symbols-outlined text-xs text-tertiary-container">thermostat</span>
+</div>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-mono-lg text-mono-lg text-primary font-bold">14.8W</span>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant">// 56°C STABLE</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded mt-1.5 overflow-hidden">
+<div class="bg-primary h-full w-[42%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Panel: Multimodal SLM Reasoner Stream (4 Columns) -->
+<div class="xl:col-span-4 flex flex-col gap-space-sm">
+<div class="bg-surface-container-low rounded-lg p-space-md flex flex-col h-full shadow-lg">
+<!-- SLM Reasoner Header -->
+<div class="flex items-center justify-between pb-space-sm bg-surface-container-lowest/50 p-space-sm rounded">
+<div class="flex items-center gap-space-sm">
+<div class="p-1 rounded bg-surface-container text-primary-container">
+<span class="material-symbols-outlined text-lg">neurology</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-md text-headline-md text-primary font-bold">SLM REASONER</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-secondary font-mono-sm text-mono-sm">LOCAL-3B</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant">Llama-3.2-Vision // Q4_K_M Offload</span>
+</div>
+</div>
+<span class="flex items-center gap-1 font-mono-sm text-mono-sm text-secondary bg-surface-container px-2 py-1 rounded">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+              STREAMING
+            </span>
+</div>
+<!-- Structured Reasoning Execution Trace -->
+<div class="flex flex-col gap-space-sm overflow-y-auto max-h-[580px] pr-1 mt-space-sm">
+<!-- Step 1: Visual Token Embedding Inspection -->
+<div class="bg-surface-container-lowest p-space-sm rounded flex flex-col gap-1">
+<div class="flex items-center justify-between text-outline font-label-caps text-label-caps">
+<span>[STEP 01: VISUAL FEATURE EMBEDDING]</span>
+<span class="font-mono-sm text-mono-sm text-secondary">PROCESSED (32.1ms)</span>
+</div>
+<div class="font-mono-sm text-mono-sm text-on-surface bg-surface-container-high/60 p-space-xs rounded">
+<span class="text-primary-container">SIG_PATCHES:</span> 576 vision-tokens ingested. Region of Interest [ROI-02: 44,48,76,82] flagged for abnormal luminance gradient.
+              </div>
+</div>
+<!-- Step 2: Correlated Tactical Field Manual Lookup -->
+<div class="bg-surface-container-lowest p-space-sm rounded flex flex-col gap-1">
+<div class="flex items-center justify-between text-outline font-label-caps text-label-caps">
+<span>[STEP 02: AIRGAP VECTOR RAG LOOKUP]</span>
+<span class="font-mono-sm text-mono-sm text-secondary">3 CHUNKS RETRIEVED</span>
+</div>
+<div class="font-mono-sm text-mono-sm text-on-surface-variant flex flex-col gap-1">
+<div class="flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-xs text-primary">menu_book</span>
+<span class="font-semibold text-primary">TM-1-1520-238-23:</span> Hydraulic Subsystems Sec. 4-12
+                </div>
+<div class="text-xs bg-surface-container-high/40 p-space-xs rounded font-mono-sm text-mono-sm text-on-surface">
+                  "Thermal variance exceeding +15°C above baseline ambient under 60-second sustain signals primary relief valve seal failure (PN: HYD-904-B)."
+                </div>
+</div>
+</div>
+<!-- Step 3: Diagnostic Synthesis & Component Breakdown -->
+<div class="bg-surface-container-lowest p-space-sm rounded flex flex-col gap-2">
+<div class="flex items-center justify-between text-outline font-label-caps text-label-caps">
+<span>[STEP 03: SYNTHESIS & DIAGNOSTIC MATCH]</span>
+<span class="text-tertiary-container font-bold font-mono-sm text-mono-sm">FAULT CONFIRMED</span>
+</div>
+<!-- Component Specifications Card -->
+<div class="bg-surface-container p-space-sm rounded flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline">IDENTIFIED HARDWARE</span>
+<span class="font-mono-sm text-mono-sm text-secondary font-bold">MIL-SPEC 994-ACT</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs font-mono-sm text-mono-sm">
+<div class="text-on-surface-variant">NOMINAL PRESSURE:</div>
+<div class="text-on-surface text-right">3,000 PSI</div>
+<div class="text-on-surface-variant">DETECTED TEMP:</div>
+<div class="text-tertiary-container text-right font-bold">84.6°C (OVERHEAT)</div>
+<div class="text-on-surface-variant">FAILURE PROBABILITY:</div>
+<div class="text-tertiary-container text-right font-bold">92.4% IN 18 MIN</div>
+</div>
+</div>
+<!-- Step-by-Step Reasoner Logic -->
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
+                Optical frame comparison correlates localized white FLIR bloom with high-pressure fluid micro-misting on actuator cylinder housing. Fluid loss trajectory risks auxiliary servo freeze at flight level FL120.
+              </p>
+</div>
+<!-- Step 4: Safety Protocol Recommendations -->
+<div class="bg-surface-container-lowest p-space-sm rounded flex flex-col gap-1.5">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span class="font-label-caps text-label-caps tracking-wider uppercase font-bold">RECOMMENDED SAFETY PROTOCOLS</span>
+</div>
+<ul class="flex flex-col gap-1 font-mono-sm text-mono-sm text-on-surface">
+<li class="flex items-start gap-1.5 bg-surface-container-high/50 p-space-xs rounded">
+<span class="text-primary font-bold">1.</span>
+<span>Isolate HYD Line 2 via secondary solenoid isolation toggle.</span>
+</li>
+<li class="flex items-start gap-1.5 bg-surface-container-high/50 p-space-xs rounded">
+<span class="text-primary font-bold">2.</span>
+<span>Throttle engine RPM delta below 72% to alleviate backpressure.</span>
+</li>
+<li class="flex items-start gap-1.5 bg-surface-container-high/50 p-space-xs rounded">
+<span class="text-tertiary font-bold">3.</span>
+<span>Route diversion waypoint to FOB DELTA (Vector 182° / 14 NM).</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Reasoner Interactive Prompt Injector -->
+<div class="mt-space-md pt-space-sm bg-surface-container-lowest p-space-sm rounded flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline">DIRECT SLM QUERY (ZERO-CLOUD)</span>
+<span class="font-mono-sm text-mono-sm text-primary">SLM_LOCAL::INSTRUCT#</span>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-high rounded px-space-sm py-1">
+<span class="text-primary-container font-mono-md text-mono-md font-bold">></span>
+<input class="w-full bg-transparent text-on-surface font-mono-sm text-mono-sm focus:outline-none placeholder-outline" placeholder="Query multimodal edge reasoner..." type="text" value="Explain MTBF degradation if actuator run at 50% load"/>
+<button class="bg-primary-container text-surface-container-lowest px-2 py-1 rounded font-mono-sm text-mono-sm font-bold hover:bg-secondary-container transition-colors">
+                SEND
+              </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Sub-panel: Tactical Timeline & Anomaly Snapshots -->
+<div class="bg-surface-container-low rounded-lg p-space-md flex flex-col gap-space-sm shadow-md">
+<div class="flex items-center justify-between flex-wrap gap-space-sm">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-base">video_library</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">MISSION TIMELINE & ANOMALY SNAPSHOTS</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-outline font-mono-sm text-mono-sm">6 CAPTURED FRAMES</span>
+</div>
+<!-- Scrubber Range Control -->
+<div class="flex items-center gap-space-md font-mono-sm text-mono-sm">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span>SCRUB:</span>
+<span class="text-primary font-bold">T-04:22.18s</span>
+</div>
+<button class="px-2 py-1 rounded bg-surface-container-high text-on-surface hover:text-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">fast_rewind</span>
+<span>-10s</span>
+</button>
+<button class="px-2 py-1 rounded bg-surface-container-high text-on-surface hover:text-primary transition-colors flex items-center gap-1">
+<span>+10s</span>
+<span class="material-symbols-outlined text-xs">fast_forward</span>
+</button>
+</div>
+</div>
+<!-- Horizontal Filmstrip of Captured Optical Frames -->
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-space-sm mt-space-xs">
+<!-- Snapshot 1: Selected Active Critical Frame -->
+<div class="bg-surface-container-lowest rounded overflow-hidden flex flex-col shadow-md group cursor-pointer">
+<div class="relative w-full h-24 bg-cover bg-center" data-alt="Close up thermal camera infrared snapshot displaying an overheating high-pressure mechanical actuator joint with intense thermal hotspot blooming in luminous amber and sharp cyan outlines against cold blue background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBqORKpZ_uUy5RGGkWrxD-fCnnv7wWiP-7PtvdXL2ijkTZF-1yJxzbjvAa5hKfar8tUnqFXE8BcFq6u3KYZqyZZLGdo2Sl4XTLVClct48h053dhTe6sns2GDHjx3sNPNoNjCW0t7M14OcJLWxCKysC2-s0Abkh1pF7BjzkYlquEmyxHtb0c4v-Swr_q51r1pqxN9dsFm0cGtKKgVzugxGF7q1qxkXhtsSZW-5pNCAH7')">
+<span class="absolute top-1 left-1 bg-surface-container-lowest/90 text-tertiary-container font-label-caps text-label-caps px-1 py-0.5 rounded font-bold">
+              14:38:29.4
+            </span>
+<span class="absolute bottom-1 right-1 bg-on-tertiary-container text-tertiary font-label-caps text-label-caps px-1 rounded">
+              ACTIVE
+            </span>
+</div>
+<div class="p-space-xs flex flex-col gap-0.5 bg-surface-container">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-tertiary font-bold">THERMAL SPIKE</span>
+<span class="font-mono-sm text-mono-sm text-outline">#0842</span>
+</div>
+<button class="mt-1 w-full bg-surface-container-highest text-primary font-mono-sm text-mono-sm py-0.5 rounded hover:bg-primary-container hover:text-surface-container-lowest transition-colors">
+              RE-ASSESS
+            </button>
+</div>
+</div>
+<!-- Snapshot 2: Stress Fracture Detection -->
+<div class="bg-surface-container-lowest rounded overflow-hidden flex flex-col shadow-sm group cursor-pointer hover:bg-surface-container transition-colors">
+<div class="relative w-full h-24 bg-cover bg-center" data-alt="Tactical electro-optical high-resolution zoom snapshot of carbon-composite wing spar strut surface showing a fine hairline fracture line highlighted by automated optical edge-detection filters." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBEw5npkMGcd7Dl1hYuvXc26kDoqOJRyZs878hKM84lxGXSsocUa7Zc1ruxR-PF7MP0VrJjWrk25n06sQW9iUazVOdoO0DGuWpuNl2I5EgKTSnsqkKIdu0vG3yINbl4Twbk_q8dBPDRgzaczhrGZH_awqMI1b5aO7MLZvGOgHt4l9Xvi5KzVshqfuCQF91LGvxwFIwJReVd6vurc-Xde0xY9WJ-emG0VxUo4ET2Q_WZ')">
+<span class="absolute top-1 left-1 bg-surface-container-lowest/90 text-on-surface font-label-caps text-label-caps px-1 py-0.5 rounded">
+              14:37:12.8
+            </span>
+</div>
+<div class="p-space-xs flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-secondary font-bold">STRESS FRACTURE</span>
+<span class="font-mono-sm text-mono-sm text-outline">#0841</span>
+</div>
+<button class="mt-1 w-full bg-surface-container-high text-on-surface-variant font-mono-sm text-mono-sm py-0.5 rounded hover:bg-surface-container-highest hover:text-on-surface transition-colors">
+              RE-ASSESS
+            </button>
+</div>
+</div>
+<!-- Snapshot 3: Component Match -->
+<div class="bg-surface-container-lowest rounded overflow-hidden flex flex-col shadow-sm group cursor-pointer hover:bg-surface-container transition-colors">
+<div class="relative w-full h-24 bg-cover bg-center" data-alt="A tactical reconnaissance thermal EO camera frame displaying an avionics relay bay with standard wiring looms and component tags rendered in crisp military thermal night-vision greens and cyans." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVkQuwO47tD17rqSLAJkHkw5jSZCRry_rvREA1aGA6T4QFCKdHU9X9tuVP_K1_3wVrL4ZfNDddpk3Sz563NyK_V25NrN9rugcOOlzP-CcKBJmJkfr2Z0qauv1hcEmeDn6A96XDyfatNrhee9LRyj4pKwaUEOVQtIZFSlolbIDjxOjykSg-JkJKemiSh9JP-BERmiiNjpkgQ604S5bJA5r20wCf7VOJ41FbYpdkcc_G')">
+<span class="absolute top-1 left-1 bg-surface-container-lowest/90 text-on-surface font-label-caps text-label-caps px-1 py-0.5 rounded">
+              14:35:44.2
+            </span>
+</div>
+<div class="p-space-xs flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary font-bold">COMPONENT MATCH</span>
+<span class="font-mono-sm text-mono-sm text-outline">#0840</span>
+</div>
+<button class="mt-1 w-full bg-surface-container-high text-on-surface-variant font-mono-sm text-mono-sm py-0.5 rounded hover:bg-surface-container-highest hover:text-on-surface transition-colors">
+              RE-ASSESS
+            </button>
+</div>
+</div>
+<!-- Snapshot 4: Exhaust Heat Exchanger -->
+<div class="bg-surface-container-lowest rounded overflow-hidden flex flex-col shadow-sm group cursor-pointer hover:bg-surface-container transition-colors">
+<div class="relative w-full h-24 bg-cover bg-center" data-alt="Thermal FLIR image of an unmanned aerial vehicle auxiliary turbine exhaust cowl with smooth heat dispersal patterns and no localized micro-leaks." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvfdLxTHhcWYWQqBsXghCg961XAJvNmL8DTVOJSOioYrRzSsv_cZZ9PBa-Pi2aPNFVzYske-3TPVJ0dLxvUDGHJF-5qJpPoXU-vVXq5GZHoMZMKsaNWsLBsMSg9EcEjY_zqdIuw9Hnh-9Q2BqBmbK8ECXnH4Xmkhe4q6uJq062XKcmCCMKjnkU9c3zxuEYLJ43jQ2xAgKvaenOSxaN2bW6eb6gWpoR4hKiKA0Nv1AR')">
+<span class="absolute top-1 left-1 bg-surface-container-lowest/90 text-on-surface font-label-caps text-label-caps px-1 py-0.5 rounded">
+              14:34:02.0
+            </span>
+</div>
+<div class="p-space-xs flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-secondary-fixed-dim font-bold">HEAT EXCHANGER</span>
+<span class="font-mono-sm text-mono-sm text-outline">#0839</span>
+</div>
+<button class="mt-1 w-full bg-surface-container-high text-on-surface-variant font-mono-sm text-mono-sm py-0.5 rounded hover:bg-surface-container-highest hover:text-on-surface transition-colors">
+              RE-ASSESS
+            </button>
+</div>
+</div>
+<!-- Snapshot 5: Radio Frequency Transmitter -->
+<div class="bg-surface-container-lowest rounded overflow-hidden flex flex-col shadow-sm group cursor-pointer hover:bg-surface-container transition-colors">
+<div class="relative w-full h-24 bg-cover bg-center" data-alt="High contrast electro-optical zoom view of an omnidirectional tactical antenna mast mounted on an external perimeter pod enclosure." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCLADgkukoDxNTDBij3orRsdTAc8l_nbB0ZuGqJk18iZ3-cspp_bluS_lqHRU0toDva1g0pSNm7HU3nzkEHagSEKo77YANpuaPL8NpttMN2GE508-ADtsBQwANgWGx6M3mOkDD44jYKxdXKPFpgYFyW51Ewf1VenO_-R0cdHx_bwUtCklbt843feRvwcnK08pL9OC5axy136WEGJEBOf3Ut3UY7CMlbDtowKXwT9T4o')">
+<span class="absolute top-1 left-1 bg-surface-container-lowest/90 text-on-surface font-label-caps text-label-caps px-1 py-0.5 rounded">
+              14:31:18.7
+            </span>
+</div>
+<div class="p-space-xs flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface font-bold">RF TRANSMITTER</span>
+<span class="font-mono-sm text-mono-sm text-outline">#0838</span>
+</div>
+<button class="mt-1 w-full bg-surface-container-high text-on-surface-variant font-mono-sm text-mono-sm py-0.5 rounded hover:bg-surface-container-highest hover:text-on-surface transition-colors">
+              RE-ASSESS
+            </button>
+</div>
+</div>
+<!-- Snapshot 6: Baseline Calibration -->
+<div class="bg-surface-container-lowest rounded overflow-hidden flex flex-col shadow-sm group cursor-pointer hover:bg-surface-container transition-colors">
+<div class="relative w-full h-24 bg-cover bg-center" data-alt="Standard ambient temperature baseline optical capture of drone takeoff hangar bay floor with cross-calibration markers visible on runway asphalt." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDQuFvpv6SyWhsLIk5DVmrRh9ISopHxvrtM_-zEGUuPCTYrjXsne2l850-J1CNnmDHlZZCgUnn85ZANhaJle9SDNIn2fu-cGFliC62ysiSZGwiJl4ybr_uM_hMuheBieuG1EmaW8kGPPJXHxeS5hv3fRp7sjcLCcF6-jssIhNBeR9Kj3NaSDj-G9pVfSRNgoEK5uuyxAy5HYREktpQlKRsVPglb0Pf6TpuTVvhFxGG1')">
+<span class="absolute top-1 left-1 bg-surface-container-lowest/90 text-on-surface font-label-caps text-label-caps px-1 py-0.5 rounded">
+              14:28:00.1
+            </span>
+</div>
+<div class="p-space-xs flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline font-bold">SYS BASELINE</span>
+<span class="font-mono-sm text-mono-sm text-outline">#0837</span>
+</div>
+<button class="mt-1 w-full bg-surface-container-high text-on-surface-variant font-mono-sm text-mono-sm py-0.5 rounded hover:bg-surface-container-highest hover:text-on-surface transition-colors">
+              RE-ASSESS
+            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Action Tactical Toolbar (Bottom Deck) -->
+<div class="w-full bg-surface-container-low rounded-lg p-space-md flex flex-wrap items-center justify-between gap-space-md shadow-md">
+<div class="flex items-center gap-space-sm flex-wrap">
+<!-- Action 1: Neural Diagnostic Run -->
+<button class="bg-primary-container text-surface-container-lowest px-space-md py-space-sm rounded font-label-caps text-label-caps uppercase font-bold flex items-center gap-1.5 hover:bg-secondary-container transition-all shadow-[0_0_12px_rgba(0,240,255,0.2)]">
+<span class="material-symbols-outlined text-base">bolt</span>
+<span>Run Neural Diagnostic</span>
+</button>
+<!-- Action 2: Thermal Delta Analysis -->
+<button class="bg-surface-container-high text-on-surface hover:text-primary px-space-md py-space-sm rounded font-label-caps text-label-caps uppercase font-bold flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-base">difference</span>
+<span>Execute Thermal Delta Analysis</span>
+</button>
+<!-- Action 3: Extract Frame Schema -->
+<button class="bg-surface-container-high text-on-surface hover:text-primary px-space-md py-space-sm rounded font-label-caps text-label-caps uppercase font-bold flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-base">data_object</span>
+<span>Extract Frame Schema (JSON-AST)</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<!-- Action 4: Export Airgap Encrypted Bundle -->
+<button class="bg-surface-container-lowest text-secondary px-space-md py-space-sm rounded font-mono-sm text-mono-sm flex items-center gap-2 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-base">archive</span>
+<span>Export Airgap Report (.tar.gz.aes)</span>
+</button>
+<button class="bg-error-container text-on-error p-space-sm rounded hover:bg-error transition-colors flex items-center justify-center" title="Emergency Feed Abort">
+<span class="material-symbols-outlined text-base">cancel</span>
+</button>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

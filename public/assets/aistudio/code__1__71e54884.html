@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-error":"#690005","primary-container":"#00f0ff","secondary-fixed-dim":"#2adec0","primary-fixed-dim":"#00dbe9","tertiary-fixed":"#ffddb8","surface-container":"#1c2025","outline-variant":"#3b494b","on-error-container":"#ffdad6","outline":"#849495","on-tertiary-container":"#855300","secondary-container":"#00d0b2","surface-container-lowest":"#0a0e14","primary-fixed":"#7df4ff","on-surface":"#e0e2ea","error":"#ffb4ab","inverse-surface":"#e0e2ea","primary":"#dbfcff","tertiary-container":"#ffd19c","on-tertiary-fixed":"#2a1700","tertiary":"#fff3ea","background":"#101419","on-tertiary-fixed-variant":"#653e00","surface-container-high":"#262a30","on-primary-container":"#006970","on-background":"#e0e2ea","surface-bright":"#36393f","secondary":"#43edcd","on-secondary-container":"#005346","surface-dim":"#101419","on-primary-fixed-variant":"#004f54","on-primary-fixed":"#002022","on-secondary-fixed":"#00201a","on-secondary-fixed-variant":"#005144","secondary-fixed":"#57fbdb","on-surface-variant":"#b9cacb","inverse-on-surface":"#2d3136","on-primary":"#00363a","on-tertiary":"#472a00","surface-container-highest":"#31353b","on-secondary":"#00382e","surface":"#101419","tertiary-fixed-dim":"#ffb95f","surface-container-low":"#181c21","surface-tint":"#00dbe9","surface-variant":"#31353b","error-container":"#93000a","inverse-primary":"#006970"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xl":"1.5rem","margin":"1rem","space-md":"0.75rem","space-lg":"1rem","space-xs":"0.25rem","space-sm":"0.5rem","gutter":"0.75rem"},"fontFamily":{"mono-sm":["JetBrains Mono"],"body-sm":["Geist"],"label-caps":["JetBrains Mono"],"body-lg":["Geist"],"mono-lg":["JetBrains Mono"],"headline-xl":["Geist"],"headline-xl-mobile":["Geist"],"body-md":["Geist"],"headline-lg":["Geist"],"headline-md":["Geist"],"mono-md":["JetBrains Mono"]},"fontSize":{"mono-sm":["11px",{"lineHeight":"16px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"label-caps":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"mono-lg":["15px",{"lineHeight":"22px","letterSpacing":"-0.02em","fontWeight":"500"}],"headline-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-xl-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-md":["18px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"600"}],"mono-md":["13px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col justify-between py-margin shadow-[0_1px_8px_rgba(0,0,0,0.5)]"><div class="flex flex-col gap-space-lg"><div class="px-space-md flex items-center justify-between"><span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">TACTICAL TOOLRAIL</span><span class="px-space-xs py-0.5 rounded bg-surface-container-high text-secondary font-mono-sm text-mono-sm">NODE::L3</span></div><nav class="flex flex-col gap-space-xs px-space-sm" data-active-classes="bg-surface-container-highest text-primary font-mono-md rounded border-l-2 border-primary-container"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded font-mono-md text-mono-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="visual-diagnostics-hud" href="#"><span class="material-symbols-outlined text-base">videocam</span><span>Mission Feeds</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm transition-colors bg-surface-container-highest text-primary font-mono-md rounded border-l-2 border-primary-container" data-path="local-slm-agent-harness" href="#"><span class="material-symbols-outlined text-base">memory</span><span>Local Checkpoints</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded font-mono-md text-mono-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="structured-json-tools" href="#"><span class="material-symbols-outlined text-base">data_object</span><span>Schema Inspector</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded font-mono-md text-mono-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="edge-telemetry-offload" href="#"><span class="material-symbols-outlined text-base">terminal</span><span>System Log Stream</span></a></nav></div><div class="px-space-md flex flex-col gap-space-sm"><div class="p-space-sm rounded bg-surface-container-lowest flex flex-col gap-space-xs"><div class="flex justify-between items-center"><span class="font-label-caps text-label-caps text-outline">MODEL INSTANCE</span><span class="font-mono-sm text-mono-sm text-secondary">READY</span></div><div class="font-mono-sm text-mono-sm text-on-surface truncate">Llama-3.2-3B-Instruct</div><div class="font-mono-sm text-mono-sm text-on-surface-variant">CKPT: Phi-3.5-mini-awq</div></div><div class="flex items-center justify-between text-outline font-label-caps text-label-caps px-space-xs"><span>AIRGAP LOCK ENGAGED</span><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 z-40 bg-surface-container-low/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-20 w-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-max"><img alt="AeroTactical Neural OS Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WXtBtlWViBSqEkjKBImpv2bEraAsf4pKeLi4gAm8580bjTHcF6Epv9Di2ml_YmKxbg57NGJWq0L-oJ-19j9PTYo-79A0pKTzH1753TW3n--m4qoOOH2lh6JuZ3uY5raH3K7ctsefwvZqJrm0YmKXDtGktckPoXLmZRrgHSVAlWpysqBfMdXHsmUs0RCBpTnyXhrEUqzBfpNGi9iiZtY8R_O-jPKL6YdavkaX2IDmMWng"/><div class="flex flex-col"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md tracking-tight uppercase text-primary font-bold">TACTICAL EDGE-SLM</span><span class="px-space-xs py-0.5 rounded bg-surface-container-high text-secondary font-label-caps text-label-caps border border-outline-variant">AIR-GAPPED // v0.9.4-QUANT</span></div><span class="font-mono-sm text-mono-sm text-on-surface-variant">AEROTACTICAL OS // AUTONOMOUS RUNTIME</span></div></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-primary font-mono-md rounded"><a class="px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-mono-md text-mono-md transition-colors" data-path="visual-diagnostics-hud" href="#">Visual Diagnostics & HUD</a><a aria-current="page" class="px-space-md py-space-sm transition-colors bg-surface-container-high text-primary font-mono-md rounded" data-path="local-slm-agent-harness" href="#">Local SLM Agent Harness</a><a class="px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-mono-md text-mono-md transition-colors" data-path="structured-json-tools" href="#">Structured JSON Tools</a><a class="px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-mono-md text-mono-md transition-colors" data-path="edge-telemetry-offload" href="#">Edge Telemetry & Offload</a></nav><div class="flex items-center gap-space-md"><div class="hidden 2xl:flex items-center gap-space-sm bg-surface-container-lowest px-space-md py-space-xs rounded font-mono-sm text-mono-sm"><div class="flex flex-col"><span class="text-outline font-label-caps text-label-caps">AIR-GAP</span><span class="text-secondary font-bold">100% SECURE</span></div><div class="h-6 w-px bg-outline-variant"></div><div class="flex flex-col"><span class="text-outline font-label-caps text-label-caps">ENGINE</span><span class="text-primary">LLAMA.CPP: LOCAL</span></div><div class="h-6 w-px bg-outline-variant"></div><div class="flex flex-col"><span class="text-outline font-label-caps text-label-caps">VRAM OFF</span><span class="text-on-surface">3.8/8 GB Q4_K_M</span></div><div class="h-6 w-px bg-outline-variant"></div><div class="flex flex-col"><span class="text-outline font-label-caps text-label-caps">NPU ACCEL</span><span class="text-secondary-fixed-dim">INT8 ACTIVE</span></div><div class="h-6 w-px bg-outline-variant"></div><div class="flex flex-col"><span class="text-outline font-label-caps text-label-caps">LATENCY / TTFT</span><span class="text-primary-container font-bold">14.2ms / 18ms</span></div></div><div class="flex items-center gap-space-sm"><button class="p-space-xs rounded bg-error-container text-on-error hover:bg-error hover:text-on-error transition-colors flex items-center justify-center" title="Local Air-Gap Kill Switch"><span class="material-symbols-outlined text-lg">lock</span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-primary-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWackdpdZnDnsai55fDIwwizAuANdsMmdPQw5lqGbV0wv_c3QWJG0LQHVyviU1T75NVfq3gtG8jeKh7ZqvC79vzM-FlNbSIcveJnKSbSoWkTXr3_aSRTI2CRZXXojb-xjYv7_-MjbiTV8GE2rqTPPZ-xW-LUa1f8p-SHiyoPIW003S4_n5lOmh7LdMiBixtEsyuEgSU54Q7hm_O75BNAt2dMrlCxzYFiCcf0FcreSK"/></div></div></div></header><main class="relative pt-20 w-full min-h-screen bg-surface"><div class="flex flex-col w-full">
+<div class="p-space-lg space-y-space-lg">
+<!-- Top Telemetry Ribbon -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Node Status Capsule -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-low rounded-xl p-space-md shadow-md flex flex-wrap items-center justify-between gap-space-md relative overflow-hidden">
+<div class="absolute -top-12 -left-12 w-48 h-48 bg-primary-container/5 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center gap-space-md z-10">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container shadow-inner">
+<span class="material-symbols-outlined text-xl">terminal</span>
+</div>
+<div>
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-md text-headline-md text-on-surface tracking-tight">AGENT HARNESS :: LOCAL RUNTIME</span>
+<span class="px-space-xs py-0.5 rounded bg-secondary/10 text-secondary font-label-caps text-label-caps flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                AIR-GAPPED DETERMINISTIC
+              </span>
+</div>
+<div class="font-mono-sm text-mono-sm text-on-surface-variant flex items-center gap-space-sm mt-0.5">
+<span>DAEMON: llama.cpp/b3419</span>
+<span class="text-outline">/</span>
+<span>DEV: /dev/kfd (AMD ROCm / Vulkan)</span>
+<span class="text-outline">/</span>
+<span class="text-secondary">ZERO NETWORK SOCKETS</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-lg z-10">
+<div class="flex flex-col text-right">
+<span class="font-label-caps text-label-caps text-outline uppercase">GENERATION VELOCITY</span>
+<div class="flex items-baseline justify-end gap-1">
+<span class="font-mono-lg text-mono-lg text-primary-container font-bold" id="telemetry-speed">42.8</span>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant">tok/s</span>
+</div>
+</div>
+<div class="h-8 w-px bg-surface-container-highest"></div>
+<div class="flex flex-col text-right">
+<span class="font-label-caps text-label-caps text-outline uppercase">LOCAL TTFT</span>
+<div class="flex items-baseline justify-end gap-1">
+<span class="font-mono-lg text-mono-lg text-secondary font-bold">18.4</span>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant">ms</span>
+</div>
+</div>
+<div class="h-8 w-px bg-surface-container-highest"></div>
+<button class="px-space-md py-space-xs rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-caps text-label-caps flex items-center gap-space-xs transition-colors shadow-sm">
+<span class="material-symbols-outlined text-sm text-primary">restart_alt</span>
+            WARM RESET
+          </button>
+</div>
+</div>
+<!-- Quick Airgap Guard Capsule -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-low rounded-xl p-space-md shadow-md flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="p-2 rounded bg-surface-container-high text-secondary">
+<span class="material-symbols-outlined text-lg">verified_user</span>
+</div>
+<div>
+<div class="font-mono-md text-mono-md text-on-surface">ZERO-LEAK ASSURANCE</div>
+<div class="font-mono-sm text-mono-sm text-outline">Loopback 127.0.0.1 bound only</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1 rounded">
+<span class="material-symbols-outlined text-secondary text-sm">shield</span>
+<span class="font-label-caps text-label-caps text-secondary">HARDWARE LOCKED</span>
+</div>
+</div>
+</div>
+<!-- Main Grid: 3-column architecture (Controller / Chat Harness / Memory Bank) -->
+<div class="grid grid-cols-12 gap-gutter items-start">
+<!-- Module 1: Model Orchestration & Hardware Offload Controller -->
+<div class="col-span-12 lg:col-span-3 space-y-space-md">
+<!-- Active SLM Switcher -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-md space-y-space-md relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-base">memory</span>
+<span class="font-label-caps text-label-caps text-on-surface uppercase">MODEL ORCHESTRATION</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-mono-sm text-mono-sm">ACTIVE</span>
+</div>
+<!-- Model Radio Stack -->
+<div class="space-y-space-xs" id="model-selector-group">
+<!-- Option 1: Selected -->
+<div class="model-card group cursor-pointer bg-surface-container p-space-sm rounded-lg transition-all shadow-sm" data-model="llama">
+<div class="flex items-center justify-between">
+<div class="font-mono-md text-mono-md text-primary font-bold">Llama-3.2-3B-Instruct</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-secondary-fixed-dim font-mono-sm text-mono-sm">Q4_K_M</span>
+</div>
+<div class="flex items-center justify-between mt-1 text-on-surface-variant font-mono-sm text-mono-sm">
+<span>VRAM: 2.14 GB</span>
+<span class="text-secondary font-bold">PRIMARY ENGAGED</span>
+</div>
+</div>
+<!-- Option 2 -->
+<div class="model-card group cursor-pointer bg-surface-container-lowest/70 hover:bg-surface-container p-space-sm rounded-lg transition-all" data-model="phi">
+<div class="flex items-center justify-between">
+<div class="font-mono-md text-mono-md text-on-surface group-hover:text-primary transition-colors">Phi-3.5-mini-3.8B</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-outline font-mono-sm text-mono-sm">Q5_K_S</span>
+</div>
+<div class="flex items-center justify-between mt-1 text-on-surface-variant font-mono-sm text-mono-sm">
+<span>VRAM: 2.78 GB</span>
+<span class="text-outline">STANDBY CKPT</span>
+</div>
+</div>
+<!-- Option 3 -->
+<div class="model-card group cursor-pointer bg-surface-container-lowest/70 hover:bg-surface-container p-space-sm rounded-lg transition-all" data-model="qwen">
+<div class="flex items-center justify-between">
+<div class="font-mono-md text-mono-md text-on-surface group-hover:text-primary transition-colors">Qwen2.5-Coder-3B</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-outline font-mono-sm text-mono-sm">Q4_0</span>
+</div>
+<div class="flex items-center justify-between mt-1 text-on-surface-variant font-mono-sm text-mono-sm">
+<span>VRAM: 1.95 GB</span>
+<span class="text-outline">STANDBY CKPT</span>
+</div>
+</div>
+</div>
+<!-- Hardware Layer Offload Gauge -->
+<div class="space-y-space-xs pt-space-xs">
+<div class="flex items-center justify-between font-mono-sm text-mono-sm">
+<span class="text-on-surface-variant">GPU Layer Offload</span>
+<span class="text-primary font-bold">28 / 28 Layers (100%)</span>
+</div>
+<!-- Segmented Meter -->
+<div class="grid grid-cols-10 gap-1 h-2">
+<div class="bg-secondary rounded-xs"></div>
+<div class="bg-secondary rounded-xs"></div>
+<div class="bg-secondary rounded-xs"></div>
+<div class="bg-secondary rounded-xs"></div>
+<div class="bg-secondary rounded-xs"></div>
+<div class="bg-secondary rounded-xs"></div>
+<div class="bg-secondary rounded-xs"></div>
+<div class="bg-secondary rounded-xs"></div>
+<div class="bg-secondary rounded-xs"></div>
+<div class="bg-secondary rounded-xs"></div>
+</div>
+<div class="flex items-center justify-between font-mono-sm text-mono-sm text-outline pt-0.5">
+<span>0 CPU Fallback</span>
+<span>dGPU: Radeon 780M</span>
+</div>
+</div>
+<!-- KV Cache Quantization Selector -->
+<div class="space-y-space-xs pt-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase">KV CACHE QUANT</span>
+<span class="font-mono-sm text-mono-sm text-secondary">FP16 BUFFER</span>
+</div>
+<div class="grid grid-cols-3 gap-1 p-0.5 bg-surface-container rounded-lg">
+<button class="py-1 text-center rounded bg-surface-container-highest text-primary font-mono-sm text-mono-sm font-bold shadow-sm">FP16</button>
+<button class="py-1 text-center rounded text-on-surface-variant hover:text-on-surface font-mono-sm text-mono-sm transition-colors">Q8_0</button>
+<button class="py-1 text-center rounded text-on-surface-variant hover:text-on-surface font-mono-sm text-mono-sm transition-colors">Q4_0</button>
+</div>
+</div>
+<!-- Context Window Dynamic Gauge -->
+<div class="bg-surface-container p-space-sm rounded-lg space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline">CONTEXT WINDOW USAGE</span>
+<span class="font-mono-sm text-mono-sm text-primary font-bold">4,096 / 16,384 tk</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-2 rounded-full overflow-hidden flex">
+<div class="bg-primary-container h-full w-1/4"></div>
+<div class="bg-secondary/40 h-full w-1/12"></div>
+<div class="bg-surface-container-highest h-full flex-1"></div>
+</div>
+<div class="flex items-center justify-between font-mono-sm text-mono-sm text-on-surface-variant">
+<span>25% Utilized</span>
+<span class="text-secondary">12,288 Left</span>
+</div>
+</div>
+</div>
+<!-- Prompt Template & Guardrails Configuration Panel -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-md space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-base">rule_settings</span>
+<span class="font-label-caps text-label-caps text-on-surface uppercase">GUARDRAILS & DECODING</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-secondary font-mono-sm text-mono-sm">ACTIVE</span>
+</div>
+<!-- Temperature & Top_P Sliders -->
+<div class="space-y-space-sm font-mono-sm text-mono-sm">
+<div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>Temperature (Deterministic)</span>
+<span class="text-primary font-bold" id="temp-val">0.20</span>
+</div>
+<input class="w-full h-1 bg-surface-container rounded-lg appearance-none cursor-pointer accent-primary-container mt-1" max="1" min="0" oninput="document.getElementById('temp-val').textContent = parseFloat(this.value).toFixed(2)" step="0.05" type="range" value="0.20"/>
+</div>
+<div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>Top_P (Nucleus Sampling)</span>
+<span class="text-primary font-bold" id="topp-val">0.85</span>
+</div>
+<input class="w-full h-1 bg-surface-container rounded-lg appearance-none cursor-pointer accent-primary-container mt-1" max="1" min="0.1" oninput="document.getElementById('topp-val').textContent = parseFloat(this.value).toFixed(2)" step="0.05" type="range" value="0.85"/>
+</div>
+</div>
+<!-- Policy Switches -->
+<div class="space-y-space-xs pt-space-xs">
+<div class="flex items-center justify-between p-space-xs bg-surface-container rounded">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-sm text-secondary">security</span>
+<span class="font-mono-sm text-mono-sm text-on-surface">Tactical Safety Filter</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-secondary/20 text-secondary font-label-caps text-label-caps">ENFORCED</span>
+</div>
+<div class="flex items-center justify-between p-space-xs bg-surface-container rounded">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-sm text-primary">compress</span>
+<span class="font-mono-sm text-mono-sm text-on-surface">Context Auto-Compress</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-caps text-label-caps">OFFLINE ROPE</span>
+</div>
+<div class="flex items-center justify-between p-space-xs bg-surface-container rounded">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-sm text-secondary">phonelink_lock</span>
+<span class="font-mono-sm text-mono-sm text-on-surface">Memory Spillover Trap</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-secondary/20 text-secondary font-label-caps text-label-caps">LOCKED</span>
+</div>
+</div>
+</div>
+<!-- Hardware Thermal Card -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-md space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline">CHIP DIE TELEMETRY</span>
+<span class="font-mono-sm text-mono-sm text-secondary">54.2°C STABLE</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm pt-1">
+<div class="bg-surface-container p-space-xs rounded">
+<div class="font-label-caps text-label-caps text-outline">NPU PEAK</div>
+<div class="font-mono-md text-mono-md text-primary font-bold">16.4 TOPS</div>
+</div>
+<div class="bg-surface-container p-space-xs rounded">
+<div class="font-label-caps text-label-caps text-outline">POWER DRAW</div>
+<div class="font-mono-md text-mono-md text-on-surface font-bold">22.8 W</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Module 2: Tactical Agent Reasoning & Interactive Workspace (Split Sub-columns) -->
+<div class="col-span-12 lg:col-span-6 space-y-space-md">
+<div class="bg-surface-container-low rounded-xl shadow-md flex flex-col h-[760px] overflow-hidden">
+<!-- Harness Header -->
+<div class="p-space-md bg-surface-container flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-mono-md text-mono-md text-on-surface font-bold">THREAD: UAV-7 Gimbal Drift</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-primary font-mono-sm text-mono-sm">ID: #OP-8821</span>
+</div>
+<div class="flex items-center gap-space-sm font-mono-sm text-mono-sm">
+<button class="px-space-xs py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">download</span>
+                EXPORT LOG
+              </button>
+<button class="px-space-xs py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-error transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">delete</span>
+                CLEAR
+              </button>
+</div>
+</div>
+<!-- Sub-Split: Thread Selector Rail & Active Workspace -->
+<div class="flex-1 flex overflow-hidden">
+<!-- Left Thread Drawer -->
+<div class="w-48 bg-surface-container-lowest/80 p-space-xs flex flex-col gap-space-xs shrink-0 overflow-y-auto">
+<div class="px-space-xs py-1 font-label-caps text-label-caps text-outline uppercase tracking-wider">LOCAL SESSIONS</div>
+<div class="p-space-xs rounded bg-surface-container text-primary font-mono-sm text-mono-sm cursor-pointer shadow-sm">
+<div class="font-bold truncate">UAV-7 Gimbal Drift</div>
+<div class="text-outline text-xs mt-0.5">3 mins ago • 14 msgs</div>
+</div>
+<div class="p-space-xs rounded hover:bg-surface-container/60 text-on-surface-variant hover:text-on-surface font-mono-sm text-mono-sm cursor-pointer transition-colors">
+<div class="truncate">Encrypted Payload Dec</div>
+<div class="text-outline text-xs mt-0.5">18 mins ago • 8 msgs</div>
+</div>
+<div class="p-space-xs rounded hover:bg-surface-container/60 text-on-surface-variant hover:text-on-surface font-mono-sm text-mono-sm cursor-pointer transition-colors">
+<div class="truncate">Field Repair: AN/PRC</div>
+<div class="text-outline text-xs mt-0.5">1.2 hrs ago • 29 msgs</div>
+</div>
+<div class="p-space-xs rounded hover:bg-surface-container/60 text-on-surface-variant hover:text-on-surface font-mono-sm text-mono-sm cursor-pointer transition-colors">
+<div class="truncate">Thermal Calibration</div>
+<div class="text-outline text-xs mt-0.5">Yesterday • 5 msgs</div>
+</div>
+<div class="mt-auto p-space-xs">
+<button class="w-full py-1.5 rounded bg-surface-container hover:bg-surface-container-high text-primary font-label-caps text-label-caps flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-xs">add</span> NEW THREAD
+                </button>
+</div>
+</div>
+<!-- Agent Chat Transcript -->
+<div class="flex-1 flex flex-col bg-surface-container-low overflow-hidden">
+<!-- Message Stream -->
+<div class="flex-1 p-space-md space-y-space-md overflow-y-auto" id="chat-stream">
+<!-- System Prompt Injection Pill -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg space-y-1">
+<div class="flex items-center justify-between text-outline font-label-caps text-label-caps">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary">integration_instructions</span>
+                      SYSTEM DIRECTIVE INJECTED (AIR-GAP VERIFIED)
+                    </span>
+<span class="text-secondary font-mono-sm">ISOLATION: STRICT</span>
+</div>
+<p class="font-mono-sm text-mono-sm text-on-surface-variant leading-relaxed">
+                    You are Tactical Tactical-SLM v0.9.4 operating inside local offline avionics. Provide high-precision fault isolation using ingested MIL-STD-810H and UAV mechanical schematics. Deterministic temperature locked at 0.20. Zero external calls permitted.
+                  </p>
+</div>
+<!-- User Message -->
+<div class="flex flex-col items-end space-y-1">
+<div class="flex items-center gap-space-xs text-outline font-mono-sm text-mono-sm">
+<span>OPERATOR // CREW-CHIEF</span>
+<span>14:02:18 UTC</span>
+</div>
+<div class="bg-surface-container-high text-on-surface p-space-sm rounded-xl max-w-[85%] font-body-md text-body-md shadow-sm">
+                    Gimbal pitch motor servo reports telemetry loop error code <code class="bg-surface-container-lowest px-1 rounded text-primary font-mono-sm text-mono-sm">ERR_PWM_SLEW_OVERFLOW</code> during 35-knot crosswind test. Confirm if potentiometer or PWM pulse width calibration is out of bounds under MIL-STD vibration specs.
+                  </div>
+</div>
+<!-- Agent Reasoning & CoT Block -->
+<div class="flex flex-col items-start space-y-1 w-full">
+<div class="flex items-center justify-between w-full text-outline font-mono-sm text-mono-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-xs text-secondary">psychology</span>
+<span class="text-secondary font-bold">LOCAL AGENT INFERENCE</span>
+<span class="text-outline">via Llama-3.2-3B-Instruct</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-primary-container font-mono-sm">42.8 t/s</span>
+<span class="text-outline">•</span>
+<span>TTFT: 18.2ms</span>
+</div>
+</div>
+<!-- Chain of Thought Accordion -->
+<div class="w-full bg-surface-container-lowest p-space-sm rounded-lg space-y-1">
+<div class="flex items-center justify-between text-outline font-label-caps text-label-caps">
+<span>INTERNAL REASONING TRACE (STEP 1/3)</span>
+<span class="text-secondary">EVAL: POSITIVE</span>
+</div>
+<div class="font-mono-sm text-mono-sm text-on-surface-variant/90 space-y-1">
+<div>1. RAG query matched <span class="text-primary">"Propulsion_Diagnostics_RevC.md"</span> (Sim: 0.941)</div>
+<div>2. PWM slew limits at 35kt wind load exceed stock 1250µs envelope by 14.8%.</div>
+<div>3. Resolver feedback saturation detected; mechanical locking pin disengagement unlikely.</div>
+</div>
+</div>
+<!-- Final Generated Response -->
+<div class="bg-surface-container text-on-surface p-space-sm rounded-xl w-full font-body-md text-body-md shadow-sm space-y-space-sm">
+<p class="leading-relaxed">
+                      Telemetry error <strong class="text-primary font-mono-sm text-mono-sm">ERR_PWM_SLEW_OVERFLOW</strong> is triggered when the digital loop attempts pitch counter-deflection outside the <strong class="text-secondary">1050µs–1950µs</strong> PWM window. Under MIL-STD-810H Section 514.8 (Category 24 aerodynamic buffet):
+                    </p>
+<ul class="list-disc pl-5 font-mono-sm text-mono-sm space-y-1 text-on-surface-variant">
+<li>The potentiometric angle resolver suffers phase lag exceeding the 12ms watchdog limit.</li>
+<li>Vibration harmonic at 140Hz is inducing micro-current spikes into the telemetry bus.</li>
+</ul>
+<div class="p-space-xs rounded bg-surface-container-high font-mono-sm text-mono-sm flex items-center justify-between">
+<span class="text-primary font-bold">> RECOMMENDED ACTION: Run calibrator script /opt/uav/recal_pwm_neutral.sh -f 140hz</span>
+<button class="px-space-xs py-0.5 rounded bg-primary-container text-on-primary-container font-label-caps text-label-caps uppercase font-bold hover:bg-secondary-fixed transition-colors">
+                        DISPATCH FIX
+                      </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Chat Input Bar -->
+<div class="p-space-sm bg-surface-container space-y-space-xs">
+<div class="flex items-center justify-between font-mono-sm text-mono-sm text-outline px-1">
+<span>PROMPT INPUT [L3_AIRGAP]</span>
+<div class="flex items-center gap-space-sm">
+<span class="text-secondary font-bold">● LOCAL RAG ENGAGED</span>
+<span>Tokens: 184 / 4096</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-lowest p-space-xs rounded-xl shadow-inner">
+<span class="text-primary font-mono-lg text-mono-lg pl-2 font-bold">></span>
+<input class="flex-1 bg-transparent border-none text-on-surface font-mono-md text-mono-md focus:outline-none placeholder:text-outline/60 px-2" placeholder="Enter tactical query, diagnostics command, or tool invocation..." type="text"/>
+<button class="px-space-md py-space-xs rounded-lg bg-primary-container hover:bg-secondary-container text-on-primary-container font-mono-md text-mono-md font-bold transition-colors flex items-center gap-1 shadow-md">
+<span>EXEC</span>
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Module 3: Local Memory & Offline RAG Cache Bank -->
+<div class="col-span-12 lg:col-span-3 space-y-space-md">
+<!-- RAG Vector Bank Panel -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-md space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-base">database</span>
+<span class="font-label-caps text-label-caps text-on-surface uppercase">OFFLINE RAG MEMORY</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-secondary font-mono-sm text-mono-sm">SQLite-vec</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded-lg space-y-1">
+<div class="flex items-center justify-between font-mono-sm text-mono-sm">
+<span class="text-outline">STORE SIZE</span>
+<span class="text-on-surface font-bold">14.8 MB (Indexed)</span>
+</div>
+<div class="flex items-center justify-between font-mono-sm text-mono-sm">
+<span class="text-outline">TOTAL CHUNKS</span>
+<span class="text-primary font-bold">1,842 vectors (384-dim)</span>
+</div>
+<div class="flex items-center justify-between font-mono-sm text-mono-sm">
+<span class="text-outline">EMBEDDING ENGINE</span>
+<span class="text-secondary font-bold">bge-small-en-v1.5 INT8</span>
+</div>
+</div>
+<!-- Document List & Similarity Chips -->
+<div class="space-y-space-xs">
+<div class="font-label-caps text-label-caps text-outline uppercase">INGESTED FIELD ASSETS</div>
+<!-- Doc 1 -->
+<div class="p-space-sm bg-surface-container rounded-lg space-y-space-xs group hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-sm text-primary">description</span>
+<span class="font-mono-sm text-mono-sm text-on-surface font-bold truncate">MIL-STD-810H.pdf</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-secondary/15 text-secondary font-mono-sm text-mono-sm font-bold">0.962 SIM</span>
+</div>
+<div class="flex items-center justify-between font-mono-sm text-mono-sm text-outline">
+<span>Chunks: 840</span>
+<span>Distance: 0.038</span>
+</div>
+</div>
+<!-- Doc 2 -->
+<div class="p-space-sm bg-surface-container rounded-lg space-y-space-xs group hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-sm text-primary">description</span>
+<span class="font-mono-sm text-mono-sm text-on-surface font-bold truncate">Propulsion_Diag_RevC.md</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-secondary/15 text-secondary font-mono-sm text-mono-sm font-bold">0.941 SIM</span>
+</div>
+<div class="flex items-center justify-between font-mono-sm text-mono-sm text-outline">
+<span>Chunks: 520</span>
+<span>Distance: 0.059</span>
+</div>
+</div>
+<!-- Doc 3 -->
+<div class="p-space-sm bg-surface-container rounded-lg space-y-space-xs group hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-sm text-outline">description</span>
+<span class="font-mono-sm text-mono-sm text-on-surface font-bold truncate">Radio_Crypto_CheatSheet.txt</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-mono-sm text-mono-sm">0.718 SIM</span>
+</div>
+<div class="flex items-center justify-between font-mono-sm text-mono-sm text-outline">
+<span>Chunks: 482</span>
+<span>Distance: 0.282</span>
+</div>
+</div>
+</div>
+<button class="w-full py-2 rounded bg-surface-container hover:bg-surface-container-high text-primary font-label-caps text-label-caps flex items-center justify-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-sm">upload_file</span> INGEST LOCAL ASSET (.PDF / .MD)
+          </button>
+</div>
+<!-- Ephemeral Session Memory Buffer -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-md space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-base">memory_alt</span>
+<span class="font-label-caps text-label-caps text-on-surface uppercase">CONVERSATIONAL MEMORY</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-primary">SLIDING KV</span>
+</div>
+<div class="space-y-space-xs font-mono-sm text-mono-sm">
+<div class="p-space-xs bg-surface-container rounded flex items-center justify-between">
+<span class="text-on-surface-variant">Active Scratchpad Entities</span>
+<span class="text-on-surface font-bold">14 Vars</span>
+</div>
+<div class="p-space-xs bg-surface-container rounded flex items-center justify-between">
+<span class="text-on-surface-variant">Self-Attention Head Cache</span>
+<span class="text-secondary font-bold">32/32 Warm</span>
+</div>
+<div class="p-space-xs bg-surface-container rounded flex items-center justify-between">
+<span class="text-on-surface-variant">Token Garbage Collector</span>
+<span class="text-outline font-bold">STANDBY</span>
+</div>
+</div>
+<button class="w-full py-1.5 rounded bg-surface-container hover:bg-error-container/20 text-error font-label-caps text-label-caps transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-sm">cleaning_services</span> PURGE KV SCRATCHPAD
+          </button>
+</div>
+<!-- Tactical Diagnostic Tool Registry -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-md space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase">OFFLINE TOOL REGISTRY</span>
+<span class="text-secondary font-mono-sm text-mono-sm">4 ACTIVE</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center justify-between p-1 bg-surface-container rounded text-mono-sm font-mono-sm">
+<span class="text-primary font-bold">exec_serial_calib()</span>
+<span class="text-secondary">OK</span>
+</div>
+<div class="flex items-center justify-between p-1 bg-surface-container rounded text-mono-sm font-mono-sm">
+<span class="text-primary font-bold">read_gimbal_telemetry()</span>
+<span class="text-secondary">OK</span>
+</div>
+<div class="flex items-center justify-between p-1 bg-surface-container rounded text-mono-sm font-mono-sm">
+<span class="text-primary font-bold">inject_crypto_key()</span>
+<span class="text-secondary">READY</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for model selector toggling
+  document.querySelectorAll('#model-selector-group .model-card').forEach(card => {
+    card.addEventListener('click', () => {
+      document.querySelectorAll('#model-selector-group .model-card').forEach(c => {
+        c.classList.remove('bg-surface-container', 'shadow-sm');
+        c.classList.add('bg-surface-container-lowest/70');
+        const badge = c.querySelector('div:last-child span:last-child');
+        if (badge) {
+          badge.classList.remove('text-secondary', 'font-bold');
+          badge.classList.add('text-outline');
+          badge.textContent = 'STANDBY CKPT';
+        }
+      });
+      card.classList.remove('bg-surface-container-lowest/70');
+      card.classList.add('bg-surface-container', 'shadow-sm');
+      const activeBadge = card.querySelector('div:last-child span:last-child');
+      if (activeBadge) {
+        activeBadge.classList.remove('text-outline');
+        activeBadge.classList.add('text-secondary', 'font-bold');
+        activeBadge.textContent = 'PRIMARY ENGAGED';
+      }
+    });
+  });
+
+  // Telemetry speed jitter simulation for operational cockpit realism
+  setInterval(() => {
+    const el = document.getElementById('telemetry-speed');
+    if (el) {
+      const base = 42.8;
+      const jitter = (Math.random() * 1.6 - 0.8).toFixed(1);
+      el.textContent = (base + parseFloat(jitter)).toFixed(1);
+    }
+  }, 2200);
+</script></main></div></body></html>

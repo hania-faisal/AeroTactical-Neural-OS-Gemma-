@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-error":"#690005","primary-container":"#00f0ff","secondary-fixed-dim":"#2adec0","primary-fixed-dim":"#00dbe9","tertiary-fixed":"#ffddb8","surface-container":"#1c2025","outline-variant":"#3b494b","on-error-container":"#ffdad6","outline":"#849495","on-tertiary-container":"#855300","secondary-container":"#00d0b2","surface-container-lowest":"#0a0e14","primary-fixed":"#7df4ff","on-surface":"#e0e2ea","error":"#ffb4ab","inverse-surface":"#e0e2ea","primary":"#dbfcff","tertiary-container":"#ffd19c","on-tertiary-fixed":"#2a1700","tertiary":"#fff3ea","background":"#101419","on-tertiary-fixed-variant":"#653e00","surface-container-high":"#262a30","on-primary-container":"#006970","on-background":"#e0e2ea","surface-bright":"#36393f","secondary":"#43edcd","on-secondary-container":"#005346","surface-dim":"#101419","on-primary-fixed-variant":"#004f54","on-primary-fixed":"#002022","on-secondary-fixed":"#00201a","on-secondary-fixed-variant":"#005144","secondary-fixed":"#57fbdb","on-surface-variant":"#b9cacb","inverse-on-surface":"#2d3136","on-primary":"#00363a","on-tertiary":"#472a00","surface-container-highest":"#31353b","on-secondary":"#00382e","surface":"#101419","tertiary-fixed-dim":"#ffb95f","surface-container-low":"#181c21","surface-tint":"#00dbe9","surface-variant":"#31353b","error-container":"#93000a","inverse-primary":"#006970"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xl":"1.5rem","margin":"1rem","space-md":"0.75rem","space-lg":"1rem","space-xs":"0.25rem","space-sm":"0.5rem","gutter":"0.75rem"},"fontFamily":{"mono-sm":["JetBrains Mono"],"body-sm":["Geist"],"label-caps":["JetBrains Mono"],"body-lg":["Geist"],"mono-lg":["JetBrains Mono"],"headline-xl":["Geist"],"headline-xl-mobile":["Geist"],"body-md":["Geist"],"headline-lg":["Geist"],"headline-md":["Geist"],"mono-md":["JetBrains Mono"]},"fontSize":{"mono-sm":["11px",{"lineHeight":"16px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"label-caps":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"mono-lg":["15px",{"lineHeight":"22px","letterSpacing":"-0.02em","fontWeight":"500"}],"headline-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-xl-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-md":["18px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"600"}],"mono-md":["13px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col justify-between py-margin shadow-[0_1px_8px_rgba(0,0,0,0.5)]"><div class="flex flex-col gap-space-lg"><div class="px-space-md flex items-center justify-between"><span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">TACTICAL TOOLRAIL</span><span class="px-space-xs py-0.5 rounded bg-surface-container-high text-secondary font-mono-sm text-mono-sm">NODE::L3</span></div><nav class="flex flex-col gap-space-xs px-space-sm" data-active-classes="bg-surface-container-highest text-primary font-mono-md rounded border-l-2 border-primary-container"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded font-mono-md text-mono-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="visual-diagnostics-hud" href="#"><span class="material-symbols-outlined text-base">videocam</span><span>Mission Feeds</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded font-mono-md text-mono-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="local-slm-agent-harness" href="#"><span class="material-symbols-outlined text-base">memory</span><span>Local Checkpoints</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded font-mono-md text-mono-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="structured-json-tools" href="#"><span class="material-symbols-outlined text-base">data_object</span><span>Schema Inspector</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded font-mono-md text-mono-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="edge-telemetry-offload" href="#"><span class="material-symbols-outlined text-base">terminal</span><span>System Log Stream</span></a></nav></div><div class="px-space-md flex flex-col gap-space-sm"><div class="p-space-sm rounded bg-surface-container-lowest flex flex-col gap-space-xs"><div class="flex justify-between items-center"><span class="font-label-caps text-label-caps text-outline">MODEL INSTANCE</span><span class="font-mono-sm text-mono-sm text-secondary">READY</span></div><div class="font-mono-sm text-mono-sm text-on-surface truncate">Llama-3.2-3B-Instruct</div><div class="font-mono-sm text-mono-sm text-on-surface-variant">CKPT: Phi-3.5-mini-awq</div></div><div class="flex items-center justify-between text-outline font-label-caps text-label-caps px-space-xs"><span>AIRGAP LOCK ENGAGED</span><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 z-40 bg-surface-container-low/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-20 w-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-max"><img alt="AeroTactical Neural OS Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WXtBtlWViBSqEkjKBImpv2bEraAsf4pKeLi4gAm8580bjTHcF6Epv9Di2ml_YmKxbg57NGJWq0L-oJ-19j9PTYo-79A0pKTzH1753TW3n--m4qoOOH2lh6JuZ3uY5raH3K7ctsefwvZqJrm0YmKXDtGktckPoXLmZRrgHSVAlWpysqBfMdXHsmUs0RCBpTnyXhrEUqzBfpNGi9iiZtY8R_O-jPKL6YdavkaX2IDmMWng"/><div class="flex flex-col"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md tracking-tight uppercase text-primary font-bold">TACTICAL EDGE-SLM</span><span class="px-space-xs py-0.5 rounded bg-surface-container-high text-secondary font-label-caps text-label-caps border border-outline-variant">AIR-GAPPED // v0.9.4-QUANT</span></div><span class="font-mono-sm text-mono-sm text-on-surface-variant">AEROTACTICAL OS // AUTONOMOUS RUNTIME</span></div></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-primary font-mono-md rounded"><a class="px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-mono-md text-mono-md transition-colors" data-path="visual-diagnostics-hud" href="#">Visual Diagnostics & HUD</a><a class="px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-mono-md text-mono-md transition-colors" data-path="local-slm-agent-harness" href="#">Local SLM Agent Harness</a><a class="px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-mono-md text-mono-md transition-colors" data-path="structured-json-tools" href="#">Structured JSON Tools</a><a class="px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-mono-md text-mono-md transition-colors" data-path="edge-telemetry-offload" href="#">Edge Telemetry & Offload</a></nav><div class="flex items-center gap-space-md"><div class="hidden 2xl:flex items-center gap-space-sm bg-surface-container-lowest px-space-md py-space-xs rounded font-mono-sm text-mono-sm"><div class="flex flex-col"><span class="text-outline font-label-caps text-label-caps">AIR-GAP</span><span class="text-secondary font-bold">100% SECURE</span></div><div class="h-6 w-px bg-outline-variant"></div><div class="flex flex-col"><span class="text-outline font-label-caps text-label-caps">ENGINE</span><span class="text-primary">LLAMA.CPP: LOCAL</span></div><div class="h-6 w-px bg-outline-variant"></div><div class="flex flex-col"><span class="text-outline font-label-caps text-label-caps">VRAM OFF</span><span class="text-on-surface">3.8/8 GB Q4_K_M</span></div><div class="h-6 w-px bg-outline-variant"></div><div class="flex flex-col"><span class="text-outline font-label-caps text-label-caps">NPU ACCEL</span><span class="text-secondary-fixed-dim">INT8 ACTIVE</span></div><div class="h-6 w-px bg-outline-variant"></div><div class="flex flex-col"><span class="text-outline font-label-caps text-label-caps">LATENCY / TTFT</span><span class="text-primary-container font-bold">14.2ms / 18ms</span></div></div><div class="flex items-center gap-space-sm"><button class="p-space-xs rounded bg-error-container text-on-error hover:bg-error hover:text-on-error transition-colors flex items-center justify-center" title="Local Air-Gap Kill Switch"><span class="material-symbols-outlined text-lg">lock</span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-primary-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWackdpdZnDnsai55fDIwwizAuANdsMmdPQw5lqGbV0wv_c3QWJG0LQHVyviU1T75NVfq3gtG8jeKh7ZqvC79vzM-FlNbSIcveJnKSbSoWkTXr3_aSRTI2CRZXXojb-xjYv7_-MjbiTV8GE2rqTPPZ-xW-LUa1f8p-SHiyoPIW003S4_n5lOmh7LdMiBixtEsyuEgSU54Q7hm_O75BNAt2dMrlCxzYFiCcf0FcreSK"/></div></div></div></header><main class="relative pt-20 w-full min-h-screen bg-surface"><div class="flex flex-col w-full">
+<div class="relative w-full p-space-md xl:p-space-lg flex flex-col gap-space-lg">
+<!-- Top System Pulse & Breadcrumb State -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md bg-surface-container-low p-space-md rounded shadow-sm relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-44 h-44 rounded-full bg-secondary/5 blur-2xl pointer-events-none"></div>
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded bg-surface-container-high flex items-center justify-center shrink-0 shadow-inner">
+<span class="material-symbols-outlined text-primary-container text-xl" style="font-variation-settings: 'FILL' 1;">developer_board</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-caps text-label-caps text-secondary font-bold tracking-widest">TACTICAL TELEMETRY</span>
+<span class="text-outline-variant font-mono-sm text-mono-sm">/</span>
+<span class="font-mono-sm text-mono-sm text-primary">NODE_JETSON_ORIN_AGX-64G</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-secondary-fixed-dim font-mono-sm text-mono-sm">DEVICE #0</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Offline Tensor Engine // Host AVX-512 + NPU Heterogeneous Offload Engine Active</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0 flex-wrap">
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-sm py-space-xs rounded shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="font-label-caps text-label-caps text-on-surface">SOC: 52°C NOMINAL</span>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-sm py-space-xs rounded shadow-sm">
+<span class="material-symbols-outlined text-sm text-primary-container">bolt</span>
+<span class="font-mono-sm text-mono-sm text-primary-container">38.4W / 50W TDP</span>
+</div>
+<button class="flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container-high hover:bg-surface-bright text-on-surface font-mono-sm text-mono-sm rounded transition-colors shadow-sm" id="refreshTeleBtn">
+<span class="material-symbols-outlined text-sm text-secondary">sync</span>
+<span>POLL (250ms)</span>
+</button>
+</div>
+</div>
+<!-- MODULE 1: Real-Time Hardware Resource Matrix -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- GPU / NPU Matrix -->
+<div class="relative bg-surface-container-low p-space-md rounded shadow-md flex flex-col justify-between overflow-hidden group">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">COMPUTE LOAD</span>
+<span class="font-headline-lg text-headline-lg text-primary font-bold">78.4%</span>
+</div>
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-lg">speed</span>
+</div>
+</div>
+<div class="my-space-md flex flex-col gap-space-xs">
+<div class="flex justify-between font-mono-sm text-mono-sm">
+<span class="text-on-surface-variant">Ampere 2048-core GPU @ 1.3GHz</span>
+<span class="text-secondary font-bold">275 TOPS</span>
+</div>
+<!-- Segmented 10-Bar Meter -->
+<div class="grid grid-cols-10 gap-1 h-3 p-0.5 bg-surface-container-lowest rounded">
+<div class="bg-secondary-container rounded-sm"></div>
+<div class="bg-secondary-container rounded-sm"></div>
+<div class="bg-secondary-container rounded-sm"></div>
+<div class="bg-secondary-container rounded-sm"></div>
+<div class="bg-secondary-container rounded-sm"></div>
+<div class="bg-secondary-container rounded-sm"></div>
+<div class="bg-secondary-container rounded-sm"></div>
+<div class="bg-secondary-fixed-dim rounded-sm"></div>
+<div class="bg-surface-container-highest rounded-sm"></div>
+<div class="bg-surface-container-highest rounded-sm"></div>
+</div>
+</div>
+<div class="pt-space-xs flex justify-between items-center font-mono-sm text-mono-sm text-outline">
+<span>TENSOR PIPES: <strong class="text-on-surface">64 FP16</strong></span>
+<span>INT8 QUANT: <strong class="text-secondary">ACTIVE</strong></span>
+</div>
+</div>
+<!-- VRAM Memory Allocation -->
+<div class="relative bg-surface-container-low p-space-md rounded shadow-md flex flex-col justify-between overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">UNIFIED LPDDR5 VRAM</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-primary font-bold">5.20</span>
+<span class="font-mono-md text-mono-md text-on-surface-variant">/ 8.00 GB</span>
+</div>
+</div>
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-lg">memory</span>
+</div>
+</div>
+<div class="my-space-md flex flex-col gap-space-xs">
+<!-- Stacked bar visualization -->
+<div class="w-full h-3 bg-surface-container-lowest rounded flex overflow-hidden">
+<div class="h-full bg-primary-container" style="width: 26.25%;" title="Weights: 2.1GB"></div>
+<div class="h-full bg-secondary-fixed-dim" style="width: 22.5%;" title="KV Cache: 1.8GB"></div>
+<div class="h-full bg-secondary" style="width: 10%;" title="Vision: 0.8GB"></div>
+<div class="h-full bg-outline" style="width: 6.25%;" title="System: 0.5GB"></div>
+<div class="h-full bg-surface-container-highest flex-1" title="Free: 2.8GB"></div>
+</div>
+<div class="flex items-center justify-between font-mono-sm text-mono-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary-container inline-block"></span>WT 2.1G</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary-fixed-dim inline-block"></span>KV 1.8G</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary inline-block"></span>VIS 0.8G</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-outline inline-block"></span>SYS 0.5G</span>
+</div>
+</div>
+<div class="pt-space-xs flex justify-between items-center font-mono-sm text-mono-sm text-outline">
+<span>PEAK VRAM: <strong class="text-on-surface">5.41 GB</strong></span>
+<span>HEADROOM: <strong class="text-secondary">2.80 GB FREE</strong></span>
+</div>
+</div>
+<!-- SoC Thermal & Power Envelope -->
+<div class="relative bg-surface-container-low p-space-md rounded shadow-md flex flex-col justify-between overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">THERMAL & POWER DRAW</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-secondary-fixed-dim font-bold">52°C</span>
+<span class="font-mono-md text-mono-md text-on-surface-variant">@ 38.4W</span>
+</div>
+</div>
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-secondary-fixed-dim">
+<span class="material-symbols-outlined text-lg">device_thermostat</span>
+</div>
+</div>
+<div class="my-space-md flex flex-col gap-space-xs">
+<div class="flex justify-between font-mono-sm text-mono-sm">
+<span class="text-on-surface-variant">Ruggedized Passive Heatsink</span>
+<span class="text-primary font-mono-sm">MAX 50.0W</span>
+</div>
+<!-- Dual mini bars -->
+<div class="flex flex-col gap-1">
+<div class="w-full bg-surface-container-lowest h-1.5 rounded overflow-hidden">
+<div class="bg-secondary-fixed-dim h-full" style="width: 61%;"></div>
+</div>
+<div class="w-full bg-surface-container-lowest h-1.5 rounded overflow-hidden">
+<div class="bg-primary-container h-full" style="width: 76.8%;"></div>
+</div>
+</div>
+</div>
+<div class="pt-space-xs flex justify-between items-center font-mono-sm text-mono-sm text-outline">
+<span>THROTTLE MARGIN: <strong class="text-secondary">+28°C</strong></span>
+<span>FAN SPEED: <strong class="text-on-surface">PASSIVE 0 RPM</strong></span>
+</div>
+</div>
+<!-- Inference Latency Benchmark -->
+<div class="relative bg-surface-container-low p-space-md rounded shadow-md flex flex-col justify-between overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">INFERENCE VELOCITY</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-primary-container font-bold">46.2</span>
+<span class="font-mono-md text-mono-md text-on-surface-variant">tok / s</span>
+</div>
+</div>
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-lg">bolt</span>
+</div>
+</div>
+<div class="my-space-md flex flex-col gap-space-xs">
+<div class="flex justify-between font-mono-sm text-mono-sm">
+<span class="text-on-surface-variant">TIME TO FIRST TOKEN (TTFT)</span>
+<span class="text-secondary font-bold">16.8 ms</span>
+</div>
+<div class="p-space-xs bg-surface-container-lowest rounded flex items-center justify-between font-mono-sm text-mono-sm">
+<span class="text-outline">BATCH_SIZE: 1</span>
+<span class="text-outline">CTX: 4096</span>
+<span class="text-primary-container font-bold">ACCEL: INT8-TC</span>
+</div>
+</div>
+<div class="pt-space-xs flex justify-between items-center font-mono-sm text-mono-sm text-outline">
+<span>EVAL SPEED: <strong class="text-on-surface">59.5 tps</strong></span>
+<span>KV HIT RATE: <strong class="text-secondary">99.4%</strong></span>
+</div>
+</div>
+</div>
+<!-- MODULE 2: Layer Offload Visualizer & Quantization Profiler -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- Layer Offload Interactive Map (8 Cols) -->
+<div class="xl:col-span-8 bg-surface-container-low p-space-md xl:p-space-lg rounded shadow-md flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded bg-primary-container"></span>
+<span class="font-headline-md text-headline-md text-primary font-bold">Heterogeneous Layer Offload Distribution</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">28-Layer Transformer: Layers 0-24 pinned to Orin Tensor Cores, 25-28 on CPU AVX-512</span>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-sm py-space-xs rounded">
+<span class="font-label-caps text-label-caps text-outline">PINNED:</span>
+<span class="font-mono-sm text-mono-sm text-secondary font-bold">25 NPU</span>
+<span class="font-mono-sm text-mono-sm text-outline-variant">|</span>
+<span class="font-mono-sm text-mono-sm text-primary-container font-bold">4 CPU</span>
+</div>
+</div>
+<!-- Layer Blocks Grid Visualization -->
+<div class="bg-surface-container-lowest p-space-md rounded flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono-sm text-mono-sm text-outline">
+<span>INPUT EMBEDDINGS (VRAM PINNED)</span>
+<span>TOKEN VOCAB: 128,256</span>
+</div>
+<div class="grid grid-cols-7 sm:grid-cols-14 gap-1.5" id="layerContainer">
+<!-- Layers 0-24 (NPU / Tensor Core) -->
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L0</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+<div class="hidden group-hover:flex absolute -top-8 bg-surface-container-highest text-primary font-mono-sm text-mono-sm px-2 py-0.5 rounded shadow-xl whitespace-nowrap z-30">L0 // 74MB // INT8</div>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L1</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L2</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L3</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L4</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L5</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L6</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L7</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L8</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L9</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L10</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L11</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L12</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L13</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L14</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L15</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L16</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L17</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L18</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L19</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L20</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L21</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L22</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L23</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-secondary">L24</span>
+<span class="font-label-caps text-label-caps text-outline group-hover:text-on-primary-container">NPU</span>
+</div>
+<!-- Layers 25-28 (CPU AVX-512 Overflow) -->
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-highest hover:bg-secondary hover:text-on-secondary transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-primary-fixed">L25</span>
+<span class="font-label-caps text-label-caps text-tertiary-fixed-dim group-hover:text-on-secondary">AVX</span>
+<div class="hidden group-hover:flex absolute -top-8 bg-surface-container-highest text-primary font-mono-sm text-mono-sm px-2 py-0.5 rounded shadow-xl whitespace-nowrap z-30">L25 // 74MB // CPU OFF</div>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-highest hover:bg-secondary hover:text-on-secondary transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-primary-fixed">L26</span>
+<span class="font-label-caps text-label-caps text-tertiary-fixed-dim group-hover:text-on-secondary">AVX</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-highest hover:bg-secondary hover:text-on-secondary transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-primary-fixed">L27</span>
+<span class="font-label-caps text-label-caps text-tertiary-fixed-dim group-hover:text-on-secondary">AVX</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-2 rounded bg-surface-container-highest hover:bg-secondary hover:text-on-secondary transition-all cursor-pointer shadow-sm">
+<span class="font-mono-sm text-mono-sm font-bold text-primary-fixed">L28</span>
+<span class="font-label-caps text-label-caps text-tertiary-fixed-dim group-hover:text-on-secondary">AVX</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between pt-space-xs font-mono-sm text-mono-sm text-outline">
+<div class="flex items-center gap-space-md">
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded bg-surface-container-high"></span>NPU Tensor Cores (0-24)</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded bg-surface-container-highest"></span>CPU AVX-512 Fallback (25-28)</span>
+</div>
+<span class="text-secondary">PCIe Gen4 Direct DMA 16.0 GT/s</span>
+</div>
+</div>
+<!-- Hardware Backend Switcher Ribbon -->
+<div class="flex items-center justify-between bg-surface-container-lowest p-space-sm rounded font-mono-sm text-mono-sm">
+<div class="flex items-center gap-space-sm">
+<span class="text-outline font-label-caps text-label-caps">RUNTIME BACKEND:</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-bold">LLAMA.CPP vB3821</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-secondary">CUDA 12.6</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="text-outline">FLASH ATTN v2:</span>
+<span class="text-secondary font-bold">ENABLED (FA2_INT8)</span>
+</div>
+</div>
+</div>
+<!-- Quantization Tradeoffs Benchmark Matrix (4 Cols) -->
+<div class="xl:col-span-4 bg-surface-container-low p-space-md xl:p-space-lg rounded shadow-md flex flex-col justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-primary font-bold">Quantization Tradeoff</span>
+<span class="font-label-caps text-label-caps px-space-xs py-0.5 rounded bg-surface-container-high text-primary-container">PROFILER</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Target SLM: Llama-3.2-3B // WikiText2 Perplexity</span>
+</div>
+<!-- Quantization Comparison Rows -->
+<div class="flex flex-col gap-space-sm">
+<!-- Q4_K_M (ACTIVE) -->
+<div class="bg-surface-container-lowest p-space-sm rounded shadow-sm flex flex-col gap-space-xs relative overflow-hidden">
+<div class="flex items-center justify-between font-mono-sm text-mono-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-primary font-bold">Q4_K_M (ACTIVE)</span>
+</div>
+<span class="text-secondary font-bold">46.2 tps</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs font-mono-sm text-mono-sm pt-space-xs">
+<div class="flex flex-col bg-surface-container-high p-1 rounded">
+<span class="text-outline font-label-caps text-label-caps">PPL (PERPLEXITY)</span>
+<span class="text-on-surface font-bold">6.12</span>
+</div>
+<div class="flex flex-col bg-surface-container-high p-1 rounded">
+<span class="text-outline font-label-caps text-label-caps">VRAM SIZE</span>
+<span class="text-on-surface font-bold">1.92 GB</span>
+</div>
+<div class="flex flex-col bg-surface-container-high p-1 rounded">
+<span class="text-outline font-label-caps text-label-caps">LATENCY TTFT</span>
+<span class="text-secondary font-bold">16.8 ms</span>
+</div>
+</div>
+</div>
+<!-- Q5_K_M -->
+<div class="bg-surface-container-lowest p-space-sm rounded shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-mono-sm text-mono-sm">
+<span class="text-on-surface font-bold">Q5_K_M</span>
+<span class="text-on-surface-variant">38.4 tps</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs font-mono-sm text-mono-sm pt-space-xs">
+<div class="flex flex-col bg-surface-container-high p-1 rounded">
+<span class="text-outline font-label-caps text-label-caps">PPL (PERPLEXITY)</span>
+<span class="text-on-surface">5.88 (-0.24)</span>
+</div>
+<div class="flex flex-col bg-surface-container-high p-1 rounded">
+<span class="text-outline font-label-caps text-label-caps">VRAM SIZE</span>
+<span class="text-on-surface">2.31 GB</span>
+</div>
+<div class="flex flex-col bg-surface-container-high p-1 rounded">
+<span class="text-outline font-label-caps text-label-caps">LATENCY TTFT</span>
+<span class="text-on-surface">21.4 ms</span>
+</div>
+</div>
+</div>
+<!-- Q8_0 -->
+<div class="bg-surface-container-lowest p-space-sm rounded shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-mono-sm text-mono-sm">
+<span class="text-on-surface font-bold">Q8_0 (STUDY)</span>
+<span class="text-on-surface-variant">24.1 tps</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs font-mono-sm text-mono-sm pt-space-xs">
+<div class="flex flex-col bg-surface-container-high p-1 rounded">
+<span class="text-outline font-label-caps text-label-caps">PPL (PERPLEXITY)</span>
+<span class="text-on-surface">5.71 (-0.41)</span>
+</div>
+<div class="flex flex-col bg-surface-container-high p-1 rounded">
+<span class="text-outline font-label-caps text-label-caps">VRAM SIZE</span>
+<span class="text-error font-bold">3.44 GB</span>
+</div>
+<div class="flex flex-col bg-surface-container-high p-1 rounded">
+<span class="text-outline font-label-caps text-label-caps">LATENCY TTFT</span>
+<span class="text-outline">35.9 ms</span>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full py-space-xs bg-surface-container-high hover:bg-surface-bright text-primary font-label-caps text-label-caps uppercase rounded transition-colors flex items-center justify-center gap-space-xs">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span>RECALCULATE AWQ TENSOR MAP</span>
+</button>
+</div>
+</div>
+<!-- MODULE 3 & 4 SPLIT: Continuous Run Monitor + Checkpoint Manager -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- MODULE 3: Airgap Integrity & Thermal Throttling Monitor (7 Cols) -->
+<div class="xl:col-span-7 bg-surface-container-low p-space-md xl:p-space-lg rounded shadow-md flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-primary font-bold">Airgap Isolation & Continuous Run Thermals</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">10-Minute Stress: Continuous 1080p YOLOv11 + phi-3.5 agentic reasoning</span>
+</div>
+<span class="font-mono-sm text-mono-sm px-space-xs py-0.5 rounded bg-surface-container-highest text-secondary">
+            T_RUN: 09m 42s
+          </span>
+</div>
+<!-- SVG Thermal Drift Graph -->
+<div class="bg-surface-container-lowest p-space-md rounded flex flex-col gap-space-xs">
+<div class="flex justify-between items-center font-mono-sm text-mono-sm text-outline">
+<span>SoC DIE TEMPERATURE DRIFT (°C)</span>
+<span class="text-secondary font-bold">PEAK: 54.1°C / TJMAX: 85°C</span>
+</div>
+<div class="relative w-full h-36 flex items-end">
+<!-- Background grid lines -->
+<div class="absolute inset-0 flex flex-col justify-between opacity-15 pointer-events-none">
+<div class="w-full h-px bg-outline"></div>
+<div class="w-full h-px bg-outline"></div>
+<div class="w-full h-px bg-outline"></div>
+<div class="w-full h-px bg-outline"></div>
+</div>
+<!-- Crisp Inline SVG Graph Line -->
+<svg class="w-full h-full text-secondary" fill="none" preserveaspectratio="none" viewbox="0 0 600 120">
+<defs>
+<lineargradient id="thermalGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="currentColor" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="currentColor" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,90 Q40,88 80,82 T160,70 T240,65 T320,62 T400,58 T480,55 T560,52 L600,51 L600,120 L0,120 Z" fill="url(#thermalGrad)"></path>
+<path d="M0,90 Q40,88 80,82 T160,70 T240,65 T320,62 T400,58 T480,55 T560,52 L600,51" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Throttle Limit Threshold Dashed Line -->
+<line opacity="0.6" stroke="#EF4444" stroke-dasharray="4 4" stroke-width="1.2" x1="0" x2="600" y1="20" y2="20"></line>
+<text class="font-mono-sm text-mono-sm" fill="#EF4444" font-size="9" x="10" y="16">THROTTLE TRIPPOINT (75°C)</text>
+<circle class="animate-pulse" cx="600" cy="51" fill="#00F0FF" r="4"></circle>
+</svg>
+</div>
+<div class="flex justify-between font-mono-sm text-mono-sm text-outline pt-space-xs">
+<span>T-00:00 (IDLE 34°C)</span>
+<span>T-05:00 (HEAVY LOAD 48°C)</span>
+<span class="text-primary font-bold">NOW (STABLE 52°C)</span>
+</div>
+</div>
+<!-- Airgap Signal Isolation Status Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm">
+<div class="bg-surface-container-lowest p-space-sm rounded shadow-sm flex flex-col justify-between gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase">WI-FI 6E RADIO</span>
+<span class="material-symbols-outlined text-sm text-secondary">wifi_off</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-secondary font-bold">PHYSICALLY CUT</span>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant">GPIO PIN 12 ZEROED</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded shadow-sm flex flex-col justify-between gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase">BLUETOOTH BLE</span>
+<span class="material-symbols-outlined text-sm text-secondary">bluetooth_disabled</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-secondary font-bold">ISOLATED / KILLED</span>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant">HCI DRIVER DETACHED</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded shadow-sm flex flex-col justify-between gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase">STARLINK TACTICAL</span>
+<span class="material-symbols-outlined text-sm text-primary-container">satellite_alt</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-primary-container font-bold">STANDBY COLD</span>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant">PWR SLEEP // PASSIVE</span>
+</div>
+</div>
+<div class="flex items-center justify-between bg-surface-container-lowest px-space-md py-space-sm rounded">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-sm">security</span>
+<span class="font-label-caps text-label-caps text-secondary font-bold">ZERO RF SIGNATURE COMPLIANT</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-outline">TEMPEST LEVEL B TESTED</span>
+</div>
+</div>
+<!-- MODULE 4: Local GGUF/ONNX Checkpoint Manager & Warm Swapper (5 Cols) -->
+<div class="xl:col-span-5 bg-surface-container-low p-space-md xl:p-space-lg rounded shadow-md flex flex-col justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-primary font-bold">Offline NVMe Checkpoints</span>
+<span class="font-mono-sm text-mono-sm text-outline">NVMe0n1 / 480 GB FREE</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Instant in-RAM warm model swap engine</span>
+</div>
+<!-- Models List -->
+<div class="flex flex-col gap-space-sm">
+<!-- Item 1: Active Model -->
+<div class="bg-surface-container-lowest p-space-sm rounded shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-base text-primary-container">check_circle</span>
+<span class="font-mono-sm text-mono-sm text-primary font-bold truncate">Llama-3.2-3B-Instruct.Q4_K_M.gguf</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-secondary font-bold shrink-0">1.92 GB</span>
+</div>
+<div class="flex items-center justify-between font-mono-sm text-mono-sm pt-space-xs">
+<span class="text-outline">SLM // CHAT + TOOLS</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-primary-container font-label-caps text-label-caps">LOADED (RAM PINNED)</span>
+</div>
+</div>
+<!-- Item 2: Phi-3.5 Mini -->
+<div class="bg-surface-container-lowest p-space-sm rounded shadow-sm flex flex-col gap-space-xs hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-base text-outline">radio_button_unchecked</span>
+<span class="font-mono-sm text-mono-sm text-on-surface truncate">Phi-3.5-mini-instruct.Q4_K_S.gguf</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant shrink-0">2.18 GB</span>
+</div>
+<div class="flex items-center justify-between font-mono-sm text-mono-sm pt-space-xs">
+<span class="text-outline">REASONING & SYNTAX</span>
+<button class="px-space-xs py-0.5 rounded bg-primary-container hover:bg-secondary text-on-primary-container font-mono-sm text-mono-sm font-bold transition-colors">
+                WARM SWAP
+              </button>
+</div>
+</div>
+<!-- Item 3: YOLO Vision ONNX -->
+<div class="bg-surface-container-lowest p-space-sm rounded shadow-sm flex flex-col gap-space-xs hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-base text-secondary">check_circle</span>
+<span class="font-mono-sm text-mono-sm text-on-surface truncate">YOLOv11n-seg.onnx</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant shrink-0">6.8 MB</span>
+</div>
+<div class="flex items-center justify-between font-mono-sm text-mono-sm pt-space-xs">
+<span class="text-outline">VISION MASK // 640x640</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-secondary font-label-caps text-label-caps">NPU ENGINE CO-RUN</span>
+</div>
+</div>
+</div>
+<!-- Fast Benchmark Action Strip -->
+<div class="bg-surface-container-lowest p-space-sm rounded flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono-sm text-mono-sm">
+<span class="text-outline">BENCHMARK REPLAY:</span>
+<span class="text-primary font-bold">512 PROMPT / 128 GEN</span>
+</div>
+<div class="flex gap-space-xs">
+<button class="flex-1 py-space-xs bg-primary-container hover:bg-secondary text-on-primary-container font-label-caps text-label-caps uppercase rounded font-bold transition-all text-center flex items-center justify-center gap-1 shadow-sm" id="runBenchBtn">
+<span class="material-symbols-outlined text-sm">play_arrow</span>
+<span>TRIGGER REPLAY BENCHMARK</span>
+</button>
+<button class="px-space-sm py-space-xs bg-surface-container-high hover:bg-surface-bright text-on-surface font-mono-sm text-mono-sm rounded transition-colors" title="Flush KV Cache">
+<span class="material-symbols-outlined text-sm">delete_sweep</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Telemetry Footnote / Hardware Identification Ribbon -->
+<div class="flex flex-col sm:flex-row items-center justify-between p-space-sm bg-surface-container-lowest rounded font-mono-sm text-mono-sm text-outline">
+<div class="flex items-center gap-space-md">
+<span>BOARD: <strong class="text-on-surface">JETSON AGX ORIN 64GB DEVELOPER KIT</strong></span>
+<span>CARRIER: <strong class="text-on-surface">RUGGED TACTICAL BOX</strong></span>
+</div>
+<div class="flex items-center gap-space-md pt-space-xs sm:pt-0">
+<span>DRIVER: 540.3.0</span>
+<span>CUDA: 12.6.68</span>
+<span class="text-secondary font-bold">SYS_HEALTH: OPTIMAL</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interactions for tactical feedback
+  const refreshBtn = document.getElementById('refreshTeleBtn');
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click', function() {
+      const originalText = refreshBtn.innerHTML;
+      refreshBtn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin text-secondary">sync</span><span>POLLING...</span>';
+      setTimeout(() => {
+        refreshBtn.innerHTML = originalText;
+      }, 400);
+    });
+  }
+
+  const runBenchBtn = document.getElementById('runBenchBtn');
+  if (runBenchBtn) {
+    runBenchBtn.addEventListener('click', function() {
+      const orig = runBenchBtn.innerHTML;
+      runBenchBtn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin">rotate_right</span><span>EVALUATING 512/128...</span>';
+      runBenchBtn.classList.add('opacity-75');
+      setTimeout(() => {
+        runBenchBtn.innerHTML = orig;
+        runBenchBtn.classList.remove('opacity-75');
+      }, 1200);
+    });
+  }
+</script></main></div></body></html>

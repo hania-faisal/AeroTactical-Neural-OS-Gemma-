@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #101419;
+  --color-surface-dim: #101419;
+  --color-surface-bright: #36393f;
+  --color-surface-container-lowest: #0a0e14;
+  --color-surface-container-low: #181c21;
+  --color-surface-container: #1c2025;
+  --color-surface-container-high: #262a30;
+  --color-surface-container-highest: #31353b;
+  --color-on-surface: #e0e2ea;
+  --color-on-surface-variant: #b9cacb;
+  --color-inverse-surface: #e0e2ea;
+  --color-inverse-on-surface: #2d3136;
+  --color-outline: #849495;
+  --color-outline-variant: #3b494b;
+  --color-surface-tint: #00dbe9;
+  --color-primary: #dbfcff;
+  --color-on-primary: #00363a;
+  --color-primary-container: #00f0ff;
+  --color-on-primary-container: #006970;
+  --color-inverse-primary: #006970;
+  --color-secondary: #43edcd;
+  --color-on-secondary: #00382e;
+  --color-secondary-container: #00d0b2;
+  --color-on-secondary-container: #005346;
+  --color-tertiary: #fff3ea;
+  --color-on-tertiary: #472a00;
+  --color-tertiary-container: #ffd19c;
+  --color-on-tertiary-container: #855300;
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+  --color-primary-fixed: #7df4ff;
+  --color-primary-fixed-dim: #00dbe9;
+  --color-on-primary-fixed: #002022;
+  --color-on-primary-fixed-variant: #004f54;
+  --color-secondary-fixed: #57fbdb;
+  --color-secondary-fixed-dim: #2adec0;
+  --color-on-secondary-fixed: #00201a;
+  --color-on-secondary-fixed-variant: #005144;
+  --color-tertiary-fixed: #ffddb8;
+  --color-tertiary-fixed-dim: #ffb95f;
+  --color-on-tertiary-fixed: #2a1700;
+  --color-on-tertiary-fixed-variant: #653e00;
+  --color-background: #101419;
+  --color-on-background: #e0e2ea;
+  --color-surface-variant: #31353b;
+
+  --font-headline-xl: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-headline-lg: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-headline-md: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body-lg: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body-md: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body-sm: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono-lg: "JetBrains Mono", monospace;
+  --font-mono-md: "JetBrains Mono", monospace;
+  --font-mono-sm: "JetBrains Mono", monospace;
+  --font-label-caps: "JetBrains Mono", monospace;
+
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 0.75rem;
+  --spacing-space-lg: 1rem;
+  --spacing-space-xl: 1.5rem;
+  --spacing-gutter: 0.75rem;
+  --spacing-margin: 1rem;
+}
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #101419;
+    color: #e0e2ea;
+    font-family: "Geist", -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+  }
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0e14;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #262a30;
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00dbe9;
+  }
+}
+
+.font-label-caps {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  line-height: 14px;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.font-mono-sm {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  line-height: 16px;
+}
+
+.font-mono-md {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.font-mono-lg {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.font-body-sm {
+  font-family: "Geist", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.font-body-md {
+  font-family: "Geist", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.font-body-lg {
+  font-family: "Geist", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.font-headline-md {
+  font-family: "Geist", sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+.font-headline-lg {
+  font-family: "Geist", sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+.font-headline-xl {
+  font-family: "Geist", sans-serif;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+}
+
+/* Tactical HUD utilities */
+.hud-corner-reticle {
+  position: relative;
+}
+.hud-corner-reticle::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid #00F0FF;
+  border-left: 2px solid #00F0FF;
+  pointer-events: none;
+}
+.hud-corner-reticle::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 6px;
+  height: 6px;
+  border-bottom: 2px solid #00F0FF;
+  border-right: 2px solid #00F0FF;
+  pointer-events: none;
+}
