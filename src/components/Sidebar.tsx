@@ -66,6 +66,18 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </button>
 
           <button
+            onClick={() => onSelectTab('knowledge-graphify')}
+            className={`flex items-center gap-space-sm px-space-md py-space-sm rounded font-mono-md text-mono-md text-left transition-colors ${
+              currentTab === 'knowledge-graphify'
+                ? 'bg-surface-container-highest text-primary border-l-2 border-primary-container font-bold shadow-sm'
+                : 'text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface'
+            }`}
+          >
+            <span className="material-symbols-outlined text-base">hub</span>
+            <span>Graphify Engine</span>
+          </button>
+
+          <button
             onClick={() => onSelectTab('edge-telemetry-offload')}
             className={`flex items-center gap-space-sm px-space-md py-space-sm rounded font-mono-md text-mono-md text-left transition-colors ${
               currentTab === 'edge-telemetry-offload'

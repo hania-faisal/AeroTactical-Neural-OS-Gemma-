@@ -5,7 +5,13 @@ import { ANOMALY_FRAMES } from '../data/mockData';
 type SensorMode = 'FLIR-W' | 'FLIR-B' | 'EO-RGB';
 type ZoomLevel = '1x' | '4x FLIR' | '10x ULTRA';
 
-export const VisualDiagnosticsHud: React.FC = () => {
+interface VisualDiagnosticsHudProps {
+  onNavigateToGraphify?: () => void;
+}
+
+export const VisualDiagnosticsHud: React.FC<VisualDiagnosticsHudProps> = ({
+  onNavigateToGraphify,
+}) => {
   const [sensorMode, setSensorMode] = useState<SensorMode>('FLIR-W');
   const [zoomLevel, setZoomLevel] = useState<ZoomLevel>('4x FLIR');
   const [selectedBox, setSelectedBox] = useState<string | null>('box-hydraulic');
@@ -772,6 +778,16 @@ export const VisualDiagnosticsHud: React.FC = () => {
             <span className="material-symbols-outlined text-base">data_object</span>
             <span>Extract Frame Schema (JSON-AST)</span>
           </button>
+
+          {onNavigateToGraphify && (
+            <button
+              onClick={onNavigateToGraphify}
+              className="bg-primary/10 text-primary border border-primary/40 hover:bg-primary/20 px-space-md py-space-sm rounded font-label-caps text-label-caps uppercase font-bold flex items-center gap-1.5 transition-colors"
+            >
+              <span className="material-symbols-outlined text-base">hub</span>
+              <span>Graphify Causal Trace</span>
+            </button>
+          )}
         </div>
 
         <div className="flex items-center gap-space-sm flex-wrap">

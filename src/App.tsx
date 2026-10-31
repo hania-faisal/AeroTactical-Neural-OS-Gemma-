@@ -6,6 +6,7 @@ import { Sidebar } from './components/Sidebar';
 import { VisualDiagnosticsHud } from './components/VisualDiagnosticsHud';
 import { LocalSlmAgentHarness } from './components/LocalSlmAgentHarness';
 import { StructuredJsonTools } from './components/StructuredJsonTools';
+import { GraphifyEngine } from './components/GraphifyEngine';
 import { EdgeTelemetryOffload } from './components/EdgeTelemetryOffload';
 
 export default function App() {
@@ -64,7 +65,11 @@ export default function App() {
 
         {/* Main Tab Views */}
         <main className="relative pt-20 w-full min-h-screen bg-surface">
-          {currentTab === 'visual-diagnostics-hud' && <VisualDiagnosticsHud />}
+          {currentTab === 'visual-diagnostics-hud' && (
+            <VisualDiagnosticsHud
+              onNavigateToGraphify={() => setCurrentTab('knowledge-graphify')}
+            />
+          )}
 
           {currentTab === 'local-slm-agent-harness' && (
             <LocalSlmAgentHarness
@@ -74,6 +79,8 @@ export default function App() {
           )}
 
           {currentTab === 'structured-json-tools' && <StructuredJsonTools />}
+
+          {currentTab === 'knowledge-graphify' && <GraphifyEngine />}
 
           {currentTab === 'edge-telemetry-offload' && (
             <EdgeTelemetryOffload

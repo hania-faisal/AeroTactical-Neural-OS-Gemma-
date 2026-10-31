@@ -2,7 +2,35 @@ export type TabType =
   | 'visual-diagnostics-hud'
   | 'local-slm-agent-harness'
   | 'structured-json-tools'
+  | 'knowledge-graphify'
   | 'edge-telemetry-offload';
+
+export interface GraphNode {
+  id: string;
+  label: string;
+  type: 'COMPONENT' | 'FAULT' | 'STANDARD' | 'METRIC' | 'ACTION' | 'SAFETY';
+  status: 'CRITICAL' | 'WARNING' | 'NOMINAL';
+  metric?: string;
+  description?: string;
+  x?: number;
+  y?: number;
+  vx?: number;
+  vy?: number;
+}
+
+export interface GraphEdge {
+  source: string;
+  target: string;
+  relation: 'INDUCES' | 'EXCEEDS' | 'GOVERNED_BY' | 'TRIGGERS' | 'MITIGATES' | 'ACTUATES' | string;
+  severity: 'CRITICAL' | 'WARNING' | 'NORMAL';
+}
+
+export interface KnowledgeGraphData {
+  graphTitle: string;
+  summary: string;
+  nodes: GraphNode[];
+  edges: GraphEdge[];
+}
 
 export interface ModelCheckpoint {
   id: string;

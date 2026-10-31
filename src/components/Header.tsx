@@ -77,6 +77,16 @@ export const Header: React.FC<HeaderProps> = ({
             Structured JSON Tools
           </button>
           <button
+            onClick={() => onSelectTab('knowledge-graphify')}
+            className={`px-space-md py-space-sm font-mono-md text-mono-md transition-colors rounded ${
+              currentTab === 'knowledge-graphify'
+                ? 'bg-surface-container-high text-primary font-bold'
+                : 'text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface'
+            }`}
+          >
+            Graphify Engine
+          </button>
+          <button
             onClick={() => onSelectTab('edge-telemetry-offload')}
             className={`px-space-md py-space-sm font-mono-md text-mono-md transition-colors rounded ${
               currentTab === 'edge-telemetry-offload'
