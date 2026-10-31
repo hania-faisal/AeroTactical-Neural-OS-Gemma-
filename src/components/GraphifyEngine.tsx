@@ -85,6 +85,38 @@ export const GraphifyEngine: React.FC = () => {
   const [customText, setCustomText] = useState<string>('');
   const [isGraphifying, setIsGraphifying] = useState<boolean>(false);
 
+  // Toast notifications & Add Node modal
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [showAddNodeModal, setShowAddNodeModal] = useState<boolean>(false);
+  const [newNodeForm, setNewNodeForm] = useState<{
+    id: string;
+    label: string;
+    type: GraphNode['type'];
+    status: GraphNode['status'];
+    metric: string;
+    description: string;
+    connectTo: string;
+    relation: string;
+    severity: 'CRITICAL' | 'WARNING' | 'NORMAL';
+  }>({
+    id: 'node_1',
+    label: 'Node 1: Telemetry Probe',
+    type: 'COMPONENT',
+    status: 'NOMINAL',
+    metric: '100 Hz / Nom',
+    description: 'Primary tactical telemetry probe node one. Intercepts bus telemetry and feeds real-time GBNF AST grammar constraints.',
+    connectTo: '',
+    relation: 'FEEDS',
+    severity: 'NORMAL',
+  });
+
+  // Auto-dismiss toast
+  useEffect(() => {
+    if (!toastMessage) return;
+    const timer = setTimeout(() => setToastMessage(null), 4000);
+    return () => clearTimeout(timer);
+  }, [toastMessage]);
+
   // Zoom and Pan
   const [zoom, setZoom] = useState<number>(1);
   const [pan, setPan] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
@@ -99,6 +131,121 @@ export const GraphifyEngine: React.FC = () => {
       setGraphData(p);
       setSelectedNodeId(p.nodes[0]?.id || '');
     }
+  };
+
+  // Instant Add "Node 1"
+  const handleAddNodeOne = (explicitLabel?: string) => {
+    let candidateId = 'node_1';
+    let counter = 1;
+    while (graphData.nodes.some(n => n.id === candidateId)) {
+      counter++;
+      candidateId = `node_${counter}`;
+    }
+
+    const label = explicitLabel || (candidateId === 'node_1' ? 'Node 1: Telemetry Probe' : `Node ${counter}: Telemetry Probe`);
+    const parentNode = graphData.nodes.find(n => n.id === selectedNodeId) || graphData.nodes[0];
+    
+    // Position offset from parent or center
+    const newX = parentNode?.x !== undefined ? Math.min(880, Math.max(120, parentNode.x + (Math.random() * 80 - 40))) : 500;
+    const newY = parentNode?.y !== undefined ? Math.min(480, Math.max(80, parentNode.y + 110)) : 260;
+
+    const newNode: GraphNode = {
+      id: candidateId,
+      label,
+      type: 'COMPONENT',
+      status: 'NOMINAL',
+      metric: '100 Hz / Nom',
+      description: `${label} (${candidateId}) injected into active causal DAG. Monitors edge sensor bus and streams telemetry into GBNF grammar parser.`,
+      x: Math.round(newX),
+      y: Math.round(newY),
+    };
+
+    const newEdges = [...graphData.edges];
+    if (parentNode && parentNode.id !== candidateId) {
+      newEdges.push({
+        source: parentNode.id,
+        target: candidateId,
+        relation: 'FEEDS',
+        severity: 'NORMAL',
+      });
+    }
+
+    setGraphData(prev => ({
+      ...prev,
+      nodes: [...prev.nodes, newNode],
+      edges: newEdges,
+    }));
+    setSelectedNodeId(candidateId);
+    setToastMessage(`✓ ${label} (${candidateId}) injected into causal DAG and linked.`);
+  };
+
+  // Custom Node Injection Form Submit
+  const handleCreateCustomNode = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    if (!newNodeForm.label.trim()) return;
+
+    let candidateId = newNodeForm.id.trim() || 'node_1';
+    if (graphData.nodes.some(n => n.id === candidateId)) {
+      candidateId = `${candidateId}_${Date.now().toString().slice(-4)}`;
+    }
+
+    const parentNode = graphData.nodes.find(n => n.id === newNodeForm.connectTo);
+    const fallbackParent = graphData.nodes.find(n => n.id === selectedNodeId) || graphData.nodes[0];
+    const refNode = parentNode || fallbackParent;
+
+    const newX = refNode?.x !== undefined ? Math.min(880, Math.max(120, refNode.x + 60)) : 500;
+    const newY = refNode?.y !== undefined ? Math.min(480, Math.max(80, refNode.y + 110)) : 260;
+
+    const newNode: GraphNode = {
+      id: candidateId,
+      label: newNodeForm.label.trim(),
+      type: newNodeForm.type,
+      status: newNodeForm.status,
+      metric: newNodeForm.metric.trim() || undefined,
+      description: newNodeForm.description.trim() || `Entity ${newNodeForm.label} registered in knowledge DAG.`,
+      x: Math.round(newX),
+      y: Math.round(newY),
+    };
+
+    const newEdges = [...graphData.edges];
+    if (newNodeForm.connectTo && newNodeForm.connectTo !== candidateId) {
+      newEdges.push({
+        source: newNodeForm.connectTo,
+        target: candidateId,
+        relation: newNodeForm.relation || 'FEEDS',
+        severity: newNodeForm.severity,
+      });
+    }
+
+    setGraphData(prev => ({
+      ...prev,
+      nodes: [...prev.nodes, newNode],
+      edges: newEdges,
+    }));
+    setSelectedNodeId(candidateId);
+    setShowAddNodeModal(false);
+    setToastMessage(`✓ Injected "${newNode.label}" (${candidateId}) into lattice.`);
+  };
+
+  // Delete / Prune Node
+  const handleDeleteNode = (nodeId: string) => {
+    if (graphData.nodes.length <= 1) {
+      setToastMessage('Cannot delete the last remaining node in DAG.');
+      return;
+    }
+    const target = graphData.nodes.find(n => n.id === nodeId);
+    const updatedNodes = graphData.nodes.filter(n => n.id !== nodeId);
+    const updatedEdges = graphData.edges.filter(e => e.source !== nodeId && e.target !== nodeId);
+
+    setGraphData(prev => ({
+      ...prev,
+      nodes: updatedNodes,
+      edges: updatedEdges,
+    }));
+    if (selectedNodeId === nodeId) {
+      setSelectedNodeId(updatedNodes[0]?.id || '');
+    }
+    setToastMessage(`Pruned node "${target?.label || nodeId}" and related edges from lattice.`);
   };
 
   // Run Graphify via Gemma 4 API
@@ -297,8 +444,32 @@ export const GraphifyEngine: React.FC = () => {
           </div>
 
           <button
+            onClick={() => handleAddNodeOne()}
+            className="px-space-md py-1 rounded bg-primary-container text-surface-container-lowest font-mono-sm text-mono-sm font-bold flex items-center gap-1.5 shadow-md hover:bg-primary transition-all border border-primary-container cursor-pointer"
+            title="Instantly inject Node 1 (Tactical Telemetry Probe) into active DAG"
+          >
+            <span className="material-symbols-outlined text-sm font-bold">add_circle</span>
+            <span>+ ADD NODE 1</span>
+          </button>
+
+          <button
+            onClick={() => {
+              setNewNodeForm(prev => ({
+                ...prev,
+                connectTo: selectedNodeId || (graphData.nodes[0]?.id ?? ''),
+              }));
+              setShowAddNodeModal(true);
+            }}
+            className="px-space-md py-1 rounded bg-surface-container-high text-primary font-mono-sm text-mono-sm font-bold flex items-center gap-1 border border-primary-container/40 hover:bg-surface-container-highest transition-colors cursor-pointer"
+            title="Configure custom node parameters and causal relations"
+          >
+            <span className="material-symbols-outlined text-sm">polyline</span>
+            <span>+ CUSTOM NODE</span>
+          </button>
+
+          <button
             onClick={() => setShowCustomModal(true)}
-            className="px-space-md py-1 rounded bg-secondary text-surface-container-lowest font-mono-sm text-mono-sm font-bold flex items-center gap-1 shadow-md hover:bg-secondary-fixed transition-colors"
+            className="px-space-md py-1 rounded bg-secondary text-surface-container-lowest font-mono-sm text-mono-sm font-bold flex items-center gap-1 shadow-md hover:bg-secondary-fixed transition-colors cursor-pointer"
           >
             <span className="material-symbols-outlined text-sm">auto_graph</span>
             <span>GRAPHIFY TEXT WITH GEMMA 4</span>
@@ -334,6 +505,15 @@ export const GraphifyEngine: React.FC = () => {
               {/* Viewport Zoom & Reset Controls */}
               <div className="flex items-center gap-1 bg-surface-container-low/90 backdrop-blur-md px-2 py-1 rounded border border-surface-container-high pointer-events-auto font-mono-sm text-mono-sm">
                 <button
+                  onClick={() => handleAddNodeOne()}
+                  className="px-2 py-0.5 rounded text-xs transition-colors bg-primary-container/20 text-primary border border-primary-container/40 hover:bg-primary-container hover:text-surface-container-lowest font-bold flex items-center gap-1 cursor-pointer"
+                  title="Quick-inject Node 1"
+                >
+                  <span className="material-symbols-outlined text-xs">add</span>
+                  <span>NODE 1</span>
+                </button>
+                <div className="h-4 w-px bg-surface-container-highest"></div>
+                <button
                   onClick={() => setCriticalOnly(!criticalOnly)}
                   className={`px-2 py-0.5 rounded text-xs transition-colors ${
                     criticalOnly
@@ -346,7 +526,7 @@ export const GraphifyEngine: React.FC = () => {
                 <div className="h-4 w-px bg-surface-container-highest"></div>
                 <button
                   onClick={() => setZoom(z => Math.max(0.6, z - 0.15))}
-                  className="p-1 text-on-surface hover:text-primary transition-colors"
+                  className="p-1 text-on-surface hover:text-primary transition-colors cursor-pointer"
                   title="Zoom Out"
                 >
                   <span className="material-symbols-outlined text-sm">remove</span>
@@ -354,7 +534,7 @@ export const GraphifyEngine: React.FC = () => {
                 <span className="text-xs text-outline px-1">{Math.round(zoom * 100)}%</span>
                 <button
                   onClick={() => setZoom(z => Math.min(1.8, z + 0.15))}
-                  className="p-1 text-on-surface hover:text-primary transition-colors"
+                  className="p-1 text-on-surface hover:text-primary transition-colors cursor-pointer"
                   title="Zoom In"
                 >
                   <span className="material-symbols-outlined text-sm">add</span>
@@ -364,13 +544,27 @@ export const GraphifyEngine: React.FC = () => {
                     setZoom(1);
                     setPan({ x: 0, y: 0 });
                   }}
-                  className="p-1 text-on-surface hover:text-primary transition-colors"
+                  className="p-1 text-on-surface hover:text-primary transition-colors cursor-pointer"
                   title="Reset View"
                 >
                   <span className="material-symbols-outlined text-sm">restart_alt</span>
                 </button>
               </div>
             </div>
+
+            {/* Realtime Action Toast Notification */}
+            {toastMessage && (
+              <div className="absolute top-14 left-1/2 -translate-x-1/2 z-30 bg-surface-container-high/95 border border-primary-container text-primary font-mono-sm text-mono-sm px-4 py-2 rounded-lg shadow-2xl flex items-center gap-2 backdrop-blur-md animate-fade-in">
+                <span className="material-symbols-outlined text-primary text-base">info</span>
+                <span>{toastMessage}</span>
+                <button
+                  onClick={() => setToastMessage(null)}
+                  className="ml-2 text-outline hover:text-primary cursor-pointer"
+                >
+                  <span className="material-symbols-outlined text-xs">close</span>
+                </button>
+              </div>
+            )}
 
             {/* SVG Interactive Canvas */}
             <svg
@@ -725,6 +919,16 @@ export const GraphifyEngine: React.FC = () => {
                       Terminal leaf action (No downstream cascades)
                     </div>
                   )}
+
+                  {/* Connect Node 1 directly to this selected entity */}
+                  <button
+                    onClick={() => handleAddNodeOne(`Node 1: Telemetry Probe`)}
+                    className="w-full py-1 mt-1 rounded bg-surface-container-high text-primary hover:bg-surface-container-highest text-mono-sm font-mono-sm border border-primary-container/30 flex items-center justify-center gap-1 transition-colors cursor-pointer"
+                    title="Connect Node 1 as downstream child of current entity"
+                  >
+                    <span className="material-symbols-outlined text-xs">add_link</span>
+                    <span>CONNECT NEW NODE 1 HERE</span>
+                  </button>
                 </div>
 
                 {/* Gemma 4 Graph Reasoning Synthesis */}
@@ -740,12 +944,25 @@ export const GraphifyEngine: React.FC = () => {
                   </p>
                   <button
                     onClick={() => {
-                      alert(`Gemma 4 evaluated sub-graph for "${selectedNode.label}": Root cause mitigated with 99.4% confidence.`);
+                      setToastMessage(`Gemma 4 evaluated sub-graph for "${selectedNode.label}": Root cause mitigated with 99.4% confidence.`);
                     }}
-                    className="mt-1 w-full py-1 rounded bg-primary-container text-surface-container-lowest font-mono-sm text-mono-sm font-bold hover:bg-secondary transition-colors"
+                    className="mt-1 w-full py-1 rounded bg-primary-container text-surface-container-lowest font-mono-sm text-mono-sm font-bold hover:bg-secondary transition-colors cursor-pointer"
                   >
                     Run Gemma 4 Sub-Graph Mitigation
                   </button>
+
+                  {/* Prune / Remove Node Action */}
+                  <div className="flex items-center justify-between pt-2 border-t border-surface-container-high mt-1 text-xs">
+                    <button
+                      onClick={() => handleDeleteNode(selectedNode.id)}
+                      className="px-2 py-1 rounded bg-error-container/20 text-error hover:bg-error-container/40 font-mono-sm text-mono-sm border border-error/30 flex items-center gap-1 transition-colors cursor-pointer"
+                      title="Prune this node from the causal graph"
+                    >
+                      <span className="material-symbols-outlined text-xs">delete</span>
+                      <span>PRUNE NODE</span>
+                    </button>
+                    <span className="text-outline font-mono-sm text-mono-sm text-[10px]">ID: {selectedNode.id}</span>
+                  </div>
                 </div>
               </div>
             )}
@@ -766,7 +983,7 @@ export const GraphifyEngine: React.FC = () => {
               </div>
               <button
                 onClick={() => setShowCustomModal(false)}
-                className="text-on-surface-variant hover:text-error"
+                className="text-on-surface-variant hover:text-error cursor-pointer"
               >
                 <span className="material-symbols-outlined">close</span>
               </button>
@@ -788,21 +1005,21 @@ export const GraphifyEngine: React.FC = () => {
                     'UAV turbine exhaust heat exchanger detected +45°C thermal plume at 612°C. EGT exceedance threatens auxiliary generator seal. Execute engine RPM throttle below 70% and route waypoint toward FOB BRAVO.'
                   );
                 }}
-                className="text-primary hover:underline font-mono-sm text-mono-sm text-xs"
+                className="text-primary hover:underline font-mono-sm text-mono-sm text-xs cursor-pointer"
               >
                 Load Sample Incident Text
               </button>
               <div className="flex gap-2">
                 <button
                   onClick={() => setShowCustomModal(false)}
-                  className="px-space-md py-1 bg-surface-container-high rounded text-on-surface font-mono-sm text-mono-sm"
+                  className="px-space-md py-1 bg-surface-container-high rounded text-on-surface font-mono-sm text-mono-sm cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={handleRunGraphify}
                   disabled={isGraphifying || !customText.trim()}
-                  className="px-space-md py-1 bg-primary-container text-surface-container-lowest font-mono-sm text-mono-sm font-bold rounded hover:bg-secondary transition-colors disabled:opacity-50 flex items-center gap-1"
+                  className="px-space-md py-1 bg-primary-container text-surface-container-lowest font-mono-sm text-mono-sm font-bold rounded hover:bg-secondary transition-colors disabled:opacity-50 flex items-center gap-1 cursor-pointer"
                 >
                   {isGraphifying && (
                     <span className="material-symbols-outlined text-sm animate-spin">
@@ -813,6 +1030,225 @@ export const GraphifyEngine: React.FC = () => {
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Inject Custom Node / Node 1 Modal */}
+      {showAddNodeModal && (
+        <div className="fixed inset-0 z-50 bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-surface-container-low border border-primary-container/40 rounded-xl p-space-md max-w-lg w-full shadow-2xl flex flex-col gap-space-sm font-mono-sm text-mono-sm">
+            <div className="flex items-center justify-between border-b border-surface-container-high pb-2">
+              <div className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary">add_circle</span>
+                <span className="font-headline-md text-headline-md text-primary font-bold">
+                  INJECT GRAPH NODE // NODE 1
+                </span>
+              </div>
+              <button
+                onClick={() => setShowAddNodeModal(false)}
+                className="text-on-surface-variant hover:text-error cursor-pointer"
+              >
+                <span className="material-symbols-outlined">close</span>
+              </button>
+            </div>
+
+            {/* Quick Template Selector */}
+            <div className="flex flex-col gap-1">
+              <span className="text-outline text-xs">QUICK TEMPLATES:</span>
+              <div className="flex flex-wrap gap-1.5">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setNewNodeForm({
+                      id: 'node_1',
+                      label: 'Node 1: Telemetry Probe',
+                      type: 'COMPONENT',
+                      status: 'NOMINAL',
+                      metric: '100 Hz / Nom',
+                      description: 'Primary tactical telemetry probe node one. Intercepts bus telemetry and feeds real-time GBNF AST grammar constraints.',
+                      connectTo: selectedNodeId || (graphData.nodes[0]?.id ?? ''),
+                      relation: 'FEEDS',
+                      severity: 'NORMAL',
+                    });
+                  }}
+                  className="px-2 py-1 rounded bg-primary-container/20 border border-primary-container/40 text-primary hover:bg-primary-container hover:text-surface-container-lowest text-xs font-bold transition-colors cursor-pointer"
+                >
+                  ⚡ NODE 1 (TELEMETRY PROBE)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setNewNodeForm({
+                      id: `fault_${Date.now().toString().slice(-4)}`,
+                      label: 'Thermal Exceedance Fault',
+                      type: 'FAULT',
+                      status: 'CRITICAL',
+                      metric: '+48°C Drift',
+                      description: 'Causal anomaly trip threshold exceeded. Triggering subsystem isolation lock.',
+                      connectTo: selectedNodeId || (graphData.nodes[0]?.id ?? ''),
+                      relation: 'INDUCES',
+                      severity: 'CRITICAL',
+                    });
+                  }}
+                  className="px-2 py-1 rounded bg-error-container/20 border border-error/40 text-error hover:bg-error-container/40 text-xs font-bold transition-colors cursor-pointer"
+                >
+                  ⚠️ FAULT EXCEEDANCE
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setNewNodeForm({
+                      id: `safety_${Date.now().toString().slice(-4)}`,
+                      label: 'Fail-Safe Bypass Gate',
+                      type: 'SAFETY',
+                      status: 'NOMINAL',
+                      metric: 'Airgap Lock',
+                      description: 'Hardware interlock safeguarding communication channels during high vibrational load.',
+                      connectTo: selectedNodeId || (graphData.nodes[0]?.id ?? ''),
+                      relation: 'MITIGATES',
+                      severity: 'NORMAL',
+                    });
+                  }}
+                  className="px-2 py-1 rounded bg-secondary/20 border border-secondary/40 text-secondary hover:bg-secondary/40 text-xs font-bold transition-colors cursor-pointer"
+                >
+                  🛡️ SAFETY INTERLOCK
+                </button>
+              </div>
+            </div>
+
+            <form onSubmit={handleCreateCustomNode} className="flex flex-col gap-space-sm mt-1">
+              <div className="grid grid-cols-2 gap-2">
+                <div className="flex flex-col gap-1">
+                  <label className="text-outline text-xs">NODE ID</label>
+                  <input
+                    type="text"
+                    value={newNodeForm.id}
+                    onChange={e => setNewNodeForm({ ...newNodeForm, id: e.target.value })}
+                    placeholder="e.g. node_1"
+                    className="p-1.5 bg-surface-container-lowest rounded text-on-surface border border-surface-container-high focus:outline-none focus:border-primary-container"
+                    required
+                  />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <label className="text-outline text-xs">ENTITY LABEL</label>
+                  <input
+                    type="text"
+                    value={newNodeForm.label}
+                    onChange={e => setNewNodeForm({ ...newNodeForm, label: e.target.value })}
+                    placeholder="e.g. Node 1: Telemetry Probe"
+                    className="p-1.5 bg-surface-container-lowest rounded text-on-surface border border-surface-container-high focus:outline-none focus:border-primary-container"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-3 gap-2">
+                <div className="flex flex-col gap-1">
+                  <label className="text-outline text-xs">NODE TYPE</label>
+                  <select
+                    value={newNodeForm.type}
+                    onChange={e => setNewNodeForm({ ...newNodeForm, type: e.target.value as GraphNode['type'] })}
+                    className="p-1.5 bg-surface-container-lowest rounded text-on-surface border border-surface-container-high focus:outline-none focus:border-primary-container"
+                  >
+                    <option value="COMPONENT">COMPONENT</option>
+                    <option value="FAULT">FAULT</option>
+                    <option value="METRIC">METRIC</option>
+                    <option value="STANDARD">STANDARD</option>
+                    <option value="ACTION">ACTION</option>
+                    <option value="SAFETY">SAFETY</option>
+                  </select>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <label className="text-outline text-xs">STATUS</label>
+                  <select
+                    value={newNodeForm.status}
+                    onChange={e => setNewNodeForm({ ...newNodeForm, status: e.target.value as GraphNode['status'] })}
+                    className="p-1.5 bg-surface-container-lowest rounded text-on-surface border border-surface-container-high focus:outline-none focus:border-primary-container"
+                  >
+                    <option value="NOMINAL">NOMINAL</option>
+                    <option value="WARNING">WARNING</option>
+                    <option value="CRITICAL">CRITICAL</option>
+                  </select>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <label className="text-outline text-xs">METRIC (OPTIONAL)</label>
+                  <input
+                    type="text"
+                    value={newNodeForm.metric}
+                    onChange={e => setNewNodeForm({ ...newNodeForm, metric: e.target.value })}
+                    placeholder="e.g. 100 Hz / Nom"
+                    className="p-1.5 bg-surface-container-lowest rounded text-on-surface border border-surface-container-high focus:outline-none focus:border-primary-container"
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label className="text-outline text-xs">DESCRIPTION</label>
+                <textarea
+                  rows={2}
+                  value={newNodeForm.description}
+                  onChange={e => setNewNodeForm({ ...newNodeForm, description: e.target.value })}
+                  placeholder="Describe the operational role or telemetry signal..."
+                  className="p-1.5 bg-surface-container-lowest rounded text-on-surface border border-surface-container-high focus:outline-none focus:border-primary-container resize-none"
+                />
+              </div>
+
+              {/* Edge Connection */}
+              <div className="p-2 rounded bg-surface-container-lowest border border-surface-container-high flex flex-col gap-2">
+                <span className="text-secondary text-xs font-bold">CONNECT TO EXISTING NODE IN DAG:</span>
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="flex flex-col gap-1">
+                    <label className="text-outline text-xs">PARENT NODE</label>
+                    <select
+                      value={newNodeForm.connectTo}
+                      onChange={e => setNewNodeForm({ ...newNodeForm, connectTo: e.target.value })}
+                      className="p-1 bg-surface-container rounded text-on-surface border border-surface-container-high text-xs"
+                    >
+                      <option value="">-- No Direct Link --</option>
+                      {graphData.nodes.map(n => (
+                        <option key={n.id} value={n.id}>
+                          {n.label} ({n.id})
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    <label className="text-outline text-xs">RELATIONSHIP</label>
+                    <select
+                      value={newNodeForm.relation}
+                      onChange={e => setNewNodeForm({ ...newNodeForm, relation: e.target.value })}
+                      className="p-1 bg-surface-container rounded text-on-surface border border-surface-container-high text-xs"
+                    >
+                      <option value="FEEDS">FEEDS</option>
+                      <option value="INDUCES">INDUCES</option>
+                      <option value="TRIGGERS">TRIGGERS</option>
+                      <option value="ACTUATES">ACTUATES</option>
+                      <option value="MITIGATES">MITIGATES</option>
+                      <option value="GOVERNED_BY">GOVERNED_BY</option>
+                      <option value="EXCEEDS">EXCEEDS</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex justify-end gap-2 pt-2 border-t border-surface-container-high">
+                <button
+                  type="button"
+                  onClick={() => setShowAddNodeModal(false)}
+                  className="px-space-md py-1 bg-surface-container-high rounded text-on-surface hover:bg-surface-container-highest cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-space-md py-1 bg-primary-container text-surface-container-lowest font-bold rounded hover:bg-primary transition-colors cursor-pointer flex items-center gap-1"
+                >
+                  <span className="material-symbols-outlined text-sm">add_circle</span>
+                  <span>INJECT NODE INTO DAG</span>
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}
